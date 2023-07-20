@@ -1,0 +1,17 @@
+@import "reset";
+@import "base";
+@import "modules/flex";
+
+
+.container {
+  max-width: 1312px;
+  margin: 0 auto;
+
+  @media screen and (max-width: $bp-xxl) {
+    padding: 0 30px;
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    padding: 0 15px;
+  }
+}

@@ -7,6 +7,9 @@ module.exports = {
     },
     extends: ["webpractik", "next", "next/core-web-vitals"],
     rules: {
-        "lodash/import-scope": "off"
+        "lodash/import-scope": "off",
+        "prettier/prettier": ["error", {
+            "tabWidth": 2
+        }]
     }
 }

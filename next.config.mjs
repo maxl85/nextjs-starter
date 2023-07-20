@@ -15,7 +15,7 @@ const nextConfig = {
     sassOptions: {
         indentType: 'tab',
         style: 'compressed',
-        additionalData: '@import "../config"',
+        additionalData: '@import "../config";',
         includePaths: [path.join(__dirname, 'src/styles/modules/')],
         charset: false,
     },
@@ -35,11 +35,11 @@ const nextConfig = {
         instrumentationHook: true,
     },
 
-    images: {
-        disableStaticImages: true,
-        dangerouslyAllowSVG: true,
-        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    },
+    // images: {
+    //     disableStaticImages: true,
+    //     dangerouslyAllowSVG: true,
+    //     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // },
 
     rewrites: async () => [
         {

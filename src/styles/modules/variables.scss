@@ -1,0 +1,31 @@
+@import 'tokens';
+
+// SCREENS
+// $full-width: 1920;
+// $big-desktop: 1600;
+// $desktop-lg: 1399;
+// $desktop: 1024;
+// $tablet: 991;
+// $mobile: 767;
+// $mobile-sm: 576;
+// $min-width: 320;
+
+
+// FONTS
+// $system-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// $font: var(--font-montserrat);
+
+// Fonts
+$font-alegreya: var(--font-alegreya);
+$font-roboto: var(--font-roboto);
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+$bp-big: 1600px;
+
+$transition: 0.2s ease-in-out;
+

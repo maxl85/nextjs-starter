@@ -1,6 +1,6 @@
-import HomeComponent from 'features/home';
-import React from 'react';
+// import HomeComponent from 'features/home';
+import Cover from 'features/Cover';
 
 export default function HomePage() {
-    return <HomeComponent />;
+  return <Cover />;
 }
