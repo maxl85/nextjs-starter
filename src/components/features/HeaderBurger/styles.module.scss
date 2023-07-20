@@ -1,0 +1,74 @@
+@import 'variables';
+
+.burger {
+  width: 40px;
+  height: 40px;
+  padding: 10px 8px;
+  margin-left: 32px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: none;
+  z-index: 10;
+
+  @media screen and (max-width: $bp-lg) {
+    display: block;
+
+    &.menuToggle {
+      .burgerLine {
+        background: #fff;
+
+        &:nth-of-type(1) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-of-type(2) {
+          display: none;
+        }
+
+        &:nth-of-type(3) {
+          width: 24px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    margin-left: 24px;
+  }
+
+  &Icon {
+    height: 100%;
+    position: relative;
+  }
+
+  &Line {
+    width: 24px;
+    height: 3px;
+    background: #000;
+    border-radius: 1.5px;
+    position: absolute;
+    left: 0;
+    top: 0%;
+    transition: $transition;
+
+    &:nth-of-type(1) {
+      transform-origin: 2px 6px;
+    }
+
+    &:nth-of-type(2) {
+      top: 50%;
+      transform: translateY(-50%);
+      height: 3px;
+    }
+
+    &:nth-of-type(3) {
+      top: auto;
+      bottom: 0;
+      width: 19px;
+      transform-origin: 2px -3px;
+    }
+  }
+
+}

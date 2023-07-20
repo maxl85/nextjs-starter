@@ -1,0 +1,36 @@
+@import 'variables';
+@import 'mixins';
+
+.promo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 32px;
+  margin-bottom: 112px;
+  
+  @media screen and (max-width: $bp-lg) {
+    margin-bottom: 80px;
+  }
+  
+  @media screen and (max-width: $bp-sm) {
+    display: none;
+  }
+
+  &Image {
+    position: relative;
+    aspect-ratio: 416 / 247;
+    margin-top: 12px;
+  }
+
+  &Title {
+    @include h4-desktop;
+    margin-top: 14px;
+
+    @media screen and (max-width: $bp-lg) {
+      @include h3-mobile;
+    }
+  }
+
+  &Text {
+    @include p-desktop;
+  }
+}

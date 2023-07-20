@@ -1,0 +1,140 @@
+@import 'variables';
+
+.nav {
+  @media screen and (max-width: $bp-lg) {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: -320px;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    padding: 120px 60px 40px;
+    background: #313945;
+    transition: $transition;
+    z-index: 9;
+
+    &.menuToggle {
+      right: 0px;
+    }
+  }
+
+  &Logo {
+    display: none;
+    position: absolute;
+    top: 12px;
+    left: 16px;
+
+    @media screen and (max-width: $bp-sm) {
+      display: block;
+    }
+  }
+
+  &List {
+    display: flex;
+
+    @media screen and (max-width: $bp-lg) {
+      flex-direction: column;
+    }
+
+    &Item {
+      margin: 0 30px;
+
+      @media screen and (max-width: $bp-xl) {
+        margin: 0 10px;
+      }
+
+      @media screen and (max-width: $bp-lg) {
+        border-bottom: 1px solid #1d2228;
+
+        &:last-child {
+          border: none;
+        }
+      }
+
+      &>a {
+        color: #000;
+        font-size: 18px;
+        font-family: $font-alegreya;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: $transition;
+
+        &:hover {
+          color: #e52d2d;
+        }
+
+        @media screen and (max-width: $bp-xl) {
+          font-size: 16px;
+        }
+
+        @media screen and (max-width: $bp-lg) {
+          display: block;
+          padding: 24px 0;
+          color: #fff;
+          text-align: center;
+          font-size: 18px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &Info {
+    display: none;
+    margin-top: auto;
+    flex-direction: column;
+    align-items: center;
+    
+    @media screen and (max-width: $bp-lg) {
+      display: flex;
+    }
+
+    &Title {
+      color: #A8B0BC;
+      text-align: center;
+      font-size: 12px;
+      font-family: $font-roboto;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    &Phone {
+      color: #FFF;
+    }
+
+    &Time {
+      color: #A8B0BC;
+      font-size: 12px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+    }
+  }
+
+  &Language {
+    display: none;
+    margin-top: 40px;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-family: $font-alegreya;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.667px;
+    text-transform: uppercase;
+
+    @media screen and (max-width: $bp-md) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

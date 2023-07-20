@@ -1,0 +1,79 @@
+@import 'variables';
+@import 'mixins';
+
+.carousel {
+  display: none;
+  margin-bottom: 60px;
+  
+  @media screen and (max-width: $bp-sm) {
+    display: block;
+  }
+  
+  &Slides {
+    transition-duration: 500ms;
+    background-position: center;
+    background-size: cover;
+    aspect-ratio: 288 / 171;
+    margin-bottom: 13px;
+    position: relative;
+    border-radius: 5px;
+  }
+
+  &LeftArrow {
+    position: absolute;
+    left: 0px;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &RightArrow {
+    position: absolute;
+    right: 0px;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &Title {
+    @include h3-mobile;
+    margin-bottom: 8px;
+  }
+
+  &Text {
+    color: #000;
+    font-size: 14px;
+    font-family: $font-roboto;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 20px;
+    ;
+    height: 42px;
+  }
+
+  &Points {
+    justify-content: center;
+    display: flex;
+    // top: 1rem;
+
+    &Item {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: #BAC4D6;
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.selected {
+  background: #E52D2D;
+}

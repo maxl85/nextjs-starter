@@ -1,0 +1,282 @@
+@import 'variables';
+@import 'mixins';
+
+
+.header {
+  margin: 46px 0;
+  position: sticky;
+  top: -1px;
+  background: #fff;
+  z-index: 10;
+
+  @media screen and (max-width: $bp-lg) {
+    margin-top: 32px;
+    margin-bottom: 41px;
+  }
+
+  @media screen and (max-width: $bp-sm ) {
+    margin-top: 12px;
+    margin-bottom: 21px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 182px;
+  height: 84px;
+  position: relative;
+  transition: $transition;
+
+  @media screen and (max-width: $bp-xl) {
+    width: 130px;
+    height: 60px;
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    width: 85px;
+    height: 39px;
+  }
+  
+  &Hide {
+    
+    @media screen and (max-width: $bp-sm) {
+      opacity: 0;
+    }
+  }
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: $bp-lg) {
+    margin-left: auto;
+  }
+
+  &WrapImage {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin-right: 12px;
+    transition: $transition;
+
+    @media screen and (max-width: $bp-lg) {
+      margin-right: 0;
+    }
+
+    @media screen and (max-width: $bp-sm) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &Text {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: $bp-lg) {
+      display: none;
+    }
+
+    &>h4 {
+      color: #000;
+      font-size: 24px;
+      font-family: $font-alegreya;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+      letter-spacing: 1.333px;
+      text-transform: uppercase;
+      transition: $transition;
+
+      &:hover {
+        color: #e52d2d;
+      }
+
+      @media screen and (max-width: $bp-xl) {
+        font-size: 20px;
+      }
+    }
+
+    &>span {
+      @include desc-desktop;
+    }
+  }
+}
+
+.cart {
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+
+  @media screen and (max-width: $bp-lg) {
+    margin-left: 32px;
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    margin-left: 24px;
+  }
+
+  &WrapImage {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    transition: $transition;
+
+    @media screen and (max-width: $bp-sm) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &Icon {
+    position: relative;
+    margin-right: 12px;
+
+    @media screen and (max-width: $bp-lg) {
+      margin-right: 0;
+    }
+
+    &>span {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background: #e52d2d;
+      color: #fff;
+      text-align: center;
+      font-size: 11px;
+      font-family: $font-roboto;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 21px;
+      border-radius: 50%
+    }
+  }
+
+  &Text {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: $bp-lg) {
+      display: none;
+    }
+
+    &>h4 {
+      color: #000;
+      font-size: 18px;
+      font-family: $font-alegreya;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: $transition;
+
+      @media screen and (max-width: $bp-xl) {
+        font-size: 16px;
+      }
+
+      &:hover {
+        color: #e52d2d;
+      }
+    }
+
+    &>span {
+      @include desc-desktop;
+      height: 18px;
+      width: 160px;
+    }
+  }
+}
+
+.language {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #eff0f1;
+
+  color: #000;
+  font-size: 18px;
+  font-family: $font-alegreya;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: $transition;
+
+  @media screen and (max-width: $bp-lg) {
+    margin-left: 70px;
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    display: none;
+  }
+
+  &:hover {
+    color: #e52d2d;
+  }
+
+  &>span {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+.isScroll {
+  &.header {
+    padding: 15px 0;
+    box-shadow: 0px 2px 5px 0px rgba(165, 169, 176, 0.30);
+  }
+
+  .logo {
+    width: 68px;
+    height: 31px;
+  }
+
+  .nav {
+    &Link {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.889px;
+    }
+  }
+
+  .phoneWrapImage,
+  .cartWrapImage {
+    width: 32px;
+    height: 32px;
+  }
+
+  .phoneText>h4 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.286px;
+  }
+
+  .cart {
+    &Text>h4 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+
+  .language {
+    font-size: 14px;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+  }
+
+}

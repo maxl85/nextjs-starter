@@ -1,0 +1,334 @@
+@import 'variables';
+@import 'mixins';
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px 40px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 0px rgba(165, 169, 176, 0.30);
+
+  @media screen and (max-width: $bp-sm) {
+    flex-direction: row;
+    padding: 12px 12px 24px;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 10px 0px rgba(165, 169, 176, 0.50);
+
+    .cardDescName {
+      color: #E52D2D;
+    }
+
+    .cardType {
+      opacity: 1;
+    }
+  }
+
+  &Type {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 7.899%;
+    height: auto;
+    opacity: 0;
+    transition: $transition;
+
+    @media screen and (max-width: $bp-lg) {
+      opacity: 1;
+    }
+
+    @media screen and (max-width: $bp-sm) {
+      left: 8px;
+      top: 9px;
+      width: 12px;
+    }
+
+    &Icon {
+      width: 100%;
+      height: auto;
+      color: #C5CBD1;
+      margin-bottom: 7px;
+
+      @media screen and (max-width: $bp-sm) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &Image {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 15px;
+
+    @media screen and (max-width: $bp-sm) {
+      width: 34%;
+      flex-shrink: 0;
+      margin-right: 13px;
+      margin-bottom: 0;
+      height: fit-content;
+    }
+
+    &SizeL {
+      position: absolute;
+      width: 85%;
+      height: 85%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &SizeM {
+      position: absolute;
+      width: 72%;
+      height: 72%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &Pizza {
+      position: absolute;
+      width: 87%;
+      height: 87%;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      // transform: translate(-50%, -50%);
+
+      &.sizeL {
+        animation: sizeLPizza 0.5s ease forwards;
+      }
+
+      &.sizeM {
+        animation: sizeMPizza 0.5s ease forwards;
+      }
+
+      &.sizeS {
+        animation: sizeSPizza 0.5s ease forwards;
+      }
+
+      @keyframes sizeLPizza {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      @keyframes sizeMPizza {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.85);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(0.85);
+        }
+      }
+
+      @keyframes sizeSPizza {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.70);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(0.70);
+        }
+      }
+    }
+  }
+
+  &Desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (max-width: $bp-sm) {
+      align-items: flex-start;
+    }
+
+    &Name {
+      @include h4-desktop;
+      margin-bottom: 6px;
+      text-align: center;
+
+      @media screen and (max-width: $bp-lg) {
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+    }
+
+    &Text {
+      @include desc-desktop;
+      text-align: center;
+      margin-bottom: 8px;
+
+      @media screen and (max-width: $bp-sm) {
+        text-align: start;
+      }
+    }
+
+    &P {
+      @include desc-desktop;
+      text-align: center;
+      color: #000;
+      margin-bottom: 6px;
+    }
+
+    &Sizes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      height: 32px;
+      padding: 2px;
+      background: #EFF0F1;
+      border-radius: 4px;
+      margin-bottom: 12px;
+
+      &Btn {
+        margin-right: 2px;
+        width: 58px;
+        height: 100%;
+        border: none;
+        // transition: $transition;
+        border-radius: 2px;
+        color: #82909F;
+        text-align: center;
+        font-size: 12px;
+        font-family: $font-roboto;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 18px;
+        cursor: pointer;
+
+        @media screen and (max-width: $bp-sm) {
+          width: 52px;
+        }
+
+        &.active {
+          background: #fff;
+          color: #000
+        }
+
+        &:last-child {
+          margin-right: 0
+        }
+      }
+    }
+
+    &Price {
+      color: #000;
+      text-align: center;
+      font-size: 24px;
+      font-family: $font-roboto;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 30px;
+      margin-bottom: 12px;
+
+      @media screen and (max-width: $bp-lg) {
+        font-size: 20px;
+      }
+
+      @media screen and (max-width: $bp-sm) {
+        display: none;
+      }
+    }
+
+    &BuyBtn {
+      position: relative;
+      width: 100%;
+      padding: 14px 0;
+      border-radius: 5px;
+      background: #E52D2D;
+      cursor: pointer;
+      border: none;
+      transition: $transition;
+      outline: none;
+      z-index: 1;
+
+      color: #FFF;
+      font-size: 18px;
+      font-family: $font-alegreya;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      @media screen and (max-width: $bp-lg) {
+        padding: 9px 0;
+        font-size: 16px;
+      }
+
+      @media screen and (max-width: $bp-sm) {
+        display: none;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: #FF3C3C;
+        border-radius: 5px;
+        transform: translateY(-50%);
+        transition: $transition;
+        z-index: -1;
+      }
+
+      &:active:after {
+        background: #BF221E;
+      }
+
+      &:hover:after {
+        height: 100%;
+      }
+
+      &:focus-visible {
+        border: 3px solid #8FC9FF;
+        background: #E52D2D;
+        transition: none;
+      }
+    }
+
+    &BuyBtnMobile {
+      display: none;
+      padding: 4px 21px;
+      background: #E52D2D;
+      color: #FFF;
+      text-align: center;
+      font-size: 16px;
+      font-family: $font-roboto;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      border-radius: 5px;
+      background: #E52D2D;
+      border: none;
+      transition: $transition;
+
+      &:active {
+        background: #BF221E;
+      }
+
+      @media screen and (max-width: $bp-sm) {
+        display: inline-block;
+      }
+    }
+
+  }
+}

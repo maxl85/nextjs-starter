@@ -26,6 +26,7 @@
         "gen": "generate-react component"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "1.9.5",
         "@sentry/nextjs": "7.57.0",
         "@t3-oss/env-nextjs": "0.6.0",
         "@tanstack/react-query": "4.29.19",
@@ -42,7 +43,11 @@
         "next": "13.4.8",
         "react": "18.2.0",
         "react-dom": "18.2.0",
+        "react-hook-form": "7.45.2",
+        "react-icons": "4.10.1",
+        "react-intersection-observer": "9.5.2",
         "react-query-kit": "1.4.5",
+        "react-redux": "8.1.1",
         "react-use": "17.4.0",
         "sharp": "0.32.1",
         "zod": "3.21.4"
@@ -54,6 +59,7 @@
         "@storybook/addon-links": "7.0.26",
         "@storybook/nextjs": "7.0.26",
         "@storybook/react": "7.0.26",
+        "@svgr/webpack": "8.0.1",
         "@testing-library/react": "14.0.0",
         "@testing-library/user-event": "14.4.3",
         "@total-typescript/ts-reset": "0.4.2",

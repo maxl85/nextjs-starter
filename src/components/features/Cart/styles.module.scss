@@ -1,0 +1,544 @@
+@import 'variables';
+@import 'mixins';
+
+.cart {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  transition: $transition;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+    display: block;
+  }
+
+  &Bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    background: #000;
+  }
+
+  &Modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 704px;
+    width: 100%;
+    height: 90%;
+    padding: 32px 32px 40px;
+    overflow: auto;
+    border-radius: 5px;
+    background: #FFF;
+  }
+
+  &Title {
+    @include h3-desktop;
+    margin-bottom: 24px;
+  }
+
+  &CloseBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border: none;
+    font-size: 35px;
+    background: #FFF;
+    cursor: pointer;
+
+    &:hover {
+      color: #E52D2D;
+    }
+  }
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #DCDFE2;
+    margin-bottom: 23px;
+  }
+
+  &Item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    padding: 8px;
+    border-top: 1px solid #DCDFE2;
+
+    &Image {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin-right: 4px;
+      // border: 1px solid black;
+
+      &WrapIcon {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: -4px;
+
+      }
+
+      &Icon {
+        position: relative;
+        width: 12px;
+        height: 12px;
+      }
+
+      &SizeL {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 83px;
+        height: 83px;
+
+        circle {
+          stroke-width: 3;
+          stroke-dasharray: 10;
+        }
+      }
+
+      &SizeM {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 68px;
+
+        circle {
+          stroke-width: 3;
+          stroke-dasharray: 15;
+        }
+      }
+
+      &Pizza {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // width: 68px;
+        // height: 68px;
+
+        &.sizeL {
+          width: 83px;
+          height: 83px;
+        }
+
+        &.sizeM {
+          width: 68px;
+          height: 68px;
+        }
+
+        &.sizeS {
+          width: 55px;
+          height: 55px;
+        }
+      }
+    }
+
+    &Pizza {
+      margin-right: auto;
+      width: 136px;
+      // display: flex;
+      // flex-direction: column;
+
+      &Name {
+        color: #000;
+        font-size: 18px;
+        font-family: $font-alegreya;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+
+      &Size {
+        color: #000;
+        font-size: 12px;
+        font-family: $font-roboto;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+      }
+    }
+
+    &Count {
+      display: flex;
+      align-items: center;
+
+      &Btn {
+        border: none;
+        padding: 0;
+        font-size: 28px;
+        line-height: 1px;
+        color: #A9A9A9;
+        background: #FFF;
+        cursor: pointer;
+
+        svg path {
+          fill: #C5CBD5;
+        }
+
+        &:disabled {
+          svg path {
+            fill: #EEF0F3;
+          }
+        }
+
+        &:enabled:active {
+          svg path {
+            fill: #E52D2D;
+          }
+        }
+      }
+
+      &Input {
+        margin: 0 7px;
+        padding: 11px;
+        max-width: 60px;
+        border-radius: 4px;
+        border: 1px solid #C4C7CA;
+        background: #FFF;
+
+        color: #000;
+        text-align: center;
+        font-size: 16px;
+        font-family: $font-roboto;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+      }
+    }
+
+    &Price {
+      @include h4-desktop;
+      margin-right: 32px;
+      margin-left: auto;
+      width: 97px;
+
+      @media screen and (max-width: $bp-sm) {
+        margin-right: 0;
+        font-size: 18px;
+        text-align: end;
+      }
+    }
+
+    &DelBtn {
+      position: absolute;
+      top: 8px;
+      right: 0px;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border: none;
+      font-size: 17px;
+      color: #A9A9A9;
+      background: #FFF;
+      cursor: pointer;
+
+      &:hover {
+        color: #E52D2D;
+      }
+    }
+  }
+
+  &Total {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    &Text {
+      color: #000;
+      font-size: 18px;
+      font-family: $font-alegreya;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      margin-right: 20px;
+      margin-bottom: 5px;
+
+      @media screen and (max-width: $bp-sm) {
+        margin-bottom: 0px;
+      }
+    }
+
+    &Sum {
+      color: #000;
+      text-align: right;
+      font-size: 32px;
+      font-family: $font-alegreya;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+
+      @media screen and (max-width: $bp-sm) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .form {
+    &Title {
+      color: #000;
+      font-size: 18px;
+      font-family: $font-alegreya;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      margin-bottom: 14px;
+
+      @media screen and (max-width: $bp-sm) {
+        margin-top: 24px;
+      }
+    }
+
+    &TwoInputs {
+      display: flex;
+      margin-bottom: 24px;
+
+      @media screen and (max-width: $bp-sm) {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+
+    }
+
+    &Wrap {
+      position: relative;
+      width: 100%;
+
+      &:nth-child(1) {
+        margin-right: 32px;
+      }
+
+      &.good {
+        label {
+          top: 0;
+          left: 9px;
+          padding: 0 4px;
+          transform: translateY(-50%);
+          font-size: 13px;
+          color: #C4C7CA;
+          background: #fff;
+          z-index: 2;
+        }
+      }
+
+      &.error {
+        input {
+          border-color: #FB7A7A;
+        }
+
+        label {
+          top: 0;
+          left: 9px;
+          padding: 0 4px;
+          transform: translateY(-50%);
+          background: #FFF;
+          font-size: 13px;
+          color: #FB7A7A !important;
+          z-index: 2;
+        }
+      }
+
+      &Input {
+        width: 100%;
+        padding: 13px 12px;
+        border: 1px solid #C4C7CA;
+        outline: none;
+        border-radius: 4px;
+        background: transparent;
+        font-family: $font-roboto;
+        font-size: 16px;
+        color: #000;
+        transition: $transition;
+        z-index: 1;
+
+        &:hover {
+          border-color: #000;
+        }
+
+        &:focus {
+          border-color: #3F8FE5;
+
+          &+label {
+            top: 0;
+            left: 9px;
+            padding: 0 4px;
+            transform: translateY(-50%);
+            background: #fff;
+            font-size: 13px;
+            color: #3F8FE5;
+            z-index: 1;
+          }
+        }
+      }
+
+      &Lable {
+        position: absolute;
+        width: auto;
+        height: auto;
+        left: 12px;
+        top: 14px;
+        padding: 0;
+        font-family: $font-roboto;
+        font-size: 16px;
+        color: #A6A6A6;
+        z-index: -1;
+        transition: $transition;
+        background: transparent;
+      }
+    }
+
+    &Pay {
+      margin: 32px 0;
+
+      &WrapRadio {
+        margin-bottom: 18px;
+      }
+
+      &Radio {
+        display: none;
+      }
+
+      &Radio:checked+label {
+        &:before {
+          opacity: 1;
+        }
+
+        &:after {
+          border-color: #000;
+        }
+      }
+
+      &Label {
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+        color: #000;
+        font-size: 16px;
+        font-family: $font-roboto;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+
+        @media screen and (max-width: $bp-sm) {
+          font-size: 12px;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 4px;
+          left: 5px;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #E52D2D;
+          opacity: 0;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 1px solid #C4C7CA;
+          transition: $transition;
+        }
+
+        &:hover:after {
+          border-color: #000;
+        }
+      }
+
+
+    }
+
+    &BuyBtn {
+      position: relative;
+      max-width: 240px;
+      width: 100%;
+      padding: 14px 0;
+      border-radius: 5px;
+      background: #E52D2D;
+      cursor: pointer;
+      border: none;
+      transition: $transition;
+      outline: none;
+      z-index: 1;
+      margin-bottom: 23px;
+
+      color: #FFF;
+      font-size: 18px;
+      font-family: $font-alegreya;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      @media screen and (max-width: $bp-lg) {
+        padding: 9px 0;
+        font-size: 16px;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: #FF3C3C;
+        border-radius: 5px;
+        transform: translateY(-50%);
+        transition: $transition;
+        z-index: -1;
+      }
+
+      &:active:after {
+        background: #BF221E;
+      }
+
+      &:hover:after {
+        height: 100%;
+      }
+
+      &:focus-visible {
+        border: 3px solid #8FC9FF;
+        background: #E52D2D;
+        transition: none;
+      }
+    }
+
+    &Policy {
+      color: #848A9A;
+      font-size: 12px;
+      font-family: $font-roboto;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+    }
+  }
+}

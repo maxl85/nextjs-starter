@@ -1,0 +1,71 @@
+@import 'variables';
+@import 'mixins';
+
+.inst {
+
+  &Title {
+    @include h2-desktop;
+    text-align: center;
+    margin-bottom: 13px;
+
+    @media screen and (max-width: $bp-lg) {
+      font-size: 40px;
+      line-height: 60px;
+      margin-bottom: 0;
+    }
+
+    @media screen and (max-width: $bp-sm) {
+      font-size: 28px;
+      line-height: 35px;
+      margin-bottom: 4px;
+    }
+  }
+
+  &User {
+    @include h4-desktop;
+    color: #848A9A;
+    text-align: center;
+    margin-bottom: 46px;
+
+    @media screen and (max-width: $bp-lg) {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: $bp-lg) {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &Grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    @media screen and (max-width: $bp-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: $bp-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &Image {
+      position: relative;
+      aspect-ratio: 384 / 384;
+
+      @media screen and (max-width: $bp-lg) {
+        &:nth-of-type(1n+7) {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: $bp-sm) {
+        &:nth-of-type(1n+5) {
+          display: none;
+        }
+      }
+    }
+  }
+}

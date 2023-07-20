@@ -1,44 +1,46 @@
 import '@/styles/index.scss';
-import 'modern-normalize/modern-normalize.css';
 
-import { Montserrat } from 'next/font/google';
-import React, { ReactNode } from 'react';
+import Footer from 'features/Footer';
+import Header from 'features/Header';
+import { Metadata } from 'next';
+import { Alegreya, Roboto } from 'next/font/google';
+import { ReactNode } from 'react';
 
-import ReactQueryProvider from '@/providers/react-query';
-import StoreProvider from '@/providers/store';
+// import ReactQueryProvider from '@/providers/react-query';
+// import StoreProvider from '@/providers/store';
+import { Providers } from '@/redux/provider';
 
-export const metadata = {
-  title: 'Nextjs Starter',
-  description: 'Default starter for projects',
-};
-
-const montserrat = Montserrat({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
+const alegreya = Alegreya({
+  subsets: ['cyrillic'],
+  variable: '--font-alegreya',
   display: 'swap',
-  style: 'normal',
-  fallback: [
-    'system-ui',
-    'Segoe UI',
-    'Roboto',
-    'Helvetica',
-    'Arial',
-    'sans-serif',
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-  ],
-  variable: '--font-montserrat',
 });
+
+const roboto = Roboto({
+  subsets: ['cyrillic'],
+  weight: ['400', '700'],
+  variable: '--font-roboto',
+  display: 'swap',
+});
+
+export const metadata: Metadata = {
+  title: 'Пицца на заказ',
+  description: 'Тестовая работа для front-end разработчика от компании Вебпрактик',
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ru" className={`${montserrat.variable}`}>
+    <html lang="ru" className={`${alegreya.variable} ${roboto.variable}`}>
       <body>
         <main>
-          <ReactQueryProvider>
+          {/* <ReactQueryProvider>
             <StoreProvider>{children}</StoreProvider>
-          </ReactQueryProvider>
+          </ReactQueryProvider> */}
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
         </main>
       </body>
     </html>
