@@ -4,8 +4,8 @@ import { expect, it } from 'vitest';
 import HomeComponent from './index';
 
 it('render home', () => {
-    render(<HomeComponent />);
+  render(<HomeComponent />);
 
-    expect(screen.queryAllByText(/next starter/i)).toBeDefined();
-    expect(screen.getByRole('img', { name: /logo/i })).toBeDefined();
+  expect(screen.queryAllByText(/next starter/i)).toBeDefined();
+  expect(screen.getByRole('img', { name: /logo/i })).toBeDefined();
 });

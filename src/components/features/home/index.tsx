@@ -8,19 +8,19 @@ import ErrorBoundary from 'shared/utilities/ErrorBoundary';
 import cn from './style.module.sass';
 
 function HomeComponent() {
-    return (
-        <Flex
-            className={cn.container}
-            alignItems="center"
-            justifyContent="center"
-            flexDirection="column"
-        >
-            <ErrorBoundary>
-                <Logo />
-                <SvgTitle />
-            </ErrorBoundary>
-        </Flex>
-    );
+  return (
+    <Flex
+      className={cn.container}
+      alignItems="center"
+      justifyContent="center"
+      flexDirection="column"
+    >
+      <ErrorBoundary>
+        <Logo />
+        <SvgTitle />
+      </ErrorBoundary>
+    </Flex>
+  );
 }
 
 export default HomeComponent;

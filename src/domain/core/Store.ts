@@ -4,9 +4,9 @@ import { enableStaticRendering } from 'mobx-react-lite';
 enableStaticRendering(typeof window === 'undefined');
 
 export default class Store {
-    constructor() {
-        makeAutoObservable(this);
-    }
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-    public hydrate!: (data: unknown) => void;
+  public hydrate!: (data: unknown) => void;
 }

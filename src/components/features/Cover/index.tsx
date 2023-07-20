@@ -14,7 +14,9 @@ export default function Cover() {
           <p className={styles.coverLeftText}>
             Бесплатная и быстрая доставка за час в любое удобное для вас время
           </p>
-          <button className={styles.coverLeftBtn}>Выбрать пиццу</button>
+          <button className={styles.coverLeftBtn} type="button">
+            Выбрать пиццу
+          </button>
         </div>
         <div className={styles.coverRight}>
           <Image className={styles.coverRightBg} src={imgBg} alt="img-bg" />
