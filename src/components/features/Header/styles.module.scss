@@ -6,17 +6,19 @@
   position: sticky;
   z-index: 10;
   top: -1px;
-  margin: 46px 0;
+  margin: 46px 0 80px 0;
+  height: 60px;
+  // margin-bottom: 46px;
   background: #fff;
 
   @include tablet-lg {
     margin-top: 32px;
-    margin-bottom: 41px;
+    margin-bottom: 0px;
   }
 
   @include mobile-sm {
     margin-top: 12px;
-    margin-bottom: 21px;
+    margin-bottom: 0px;
   }
 }
 
@@ -41,7 +43,7 @@
     width: 85px;
     height: 39px;
   }
-  
+
   &Hide {
     @include mobile-sm {
       opacity: 0;
@@ -167,7 +169,7 @@
       display: none;
     }
 
-    &>h4 {
+    &Title {
       color: #000;
       font-family: $font-alegreya;
       font-size: 18px;
@@ -189,14 +191,14 @@
 
     &>span {
       @include desc-text;
-
-      width: 160px;
+      // width: 160px;
       height: 18px;
     }
   }
 }
 
 .language {
+  display: block;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -235,7 +237,7 @@
 
 .isScroll {
   &.header {
-    padding: 15px 0;
+    padding: 9px 0 9px 0;
     box-shadow: 0 2px 5px 0 rgb(165 169 176 / 30%);
   }
 
@@ -244,12 +246,18 @@
     height: 31px;
   }
 
-  .nav {
-    &Link {
+  nav {
+    margin-left: auto;
+
+    a {
       font-size: 16px;
       font-weight: 700;
       letter-spacing: 0.889px;
     }
+  }
+
+  .phone {
+    margin-left: auto;
   }
 
   .phoneWrapImage,
@@ -265,17 +273,21 @@
   }
 
   .cart {
-    &Text>h4 {
+    margin-left: 62px;
+
+    @include tablet-lg {
+      margin-left: 32px;
+    }
+
+    &TextTitle {
+      margin-right: 170px;
       font-size: 14px;
       font-weight: 700;
     }
   }
 
   .language {
-    width: 40px;
-    height: 40px;
-    font-size: 14px;
-    font-weight: 700;
+    display: none;
   }
 
 }

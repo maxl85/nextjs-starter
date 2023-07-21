@@ -21,17 +21,17 @@ export default function HeaderMenu({ menuToggle }: Props) {
         alt="logo"
       />
 
-      <ul className={styles.navList}>
-        <li className={styles.navListItem}>
+      <div className={styles.navList}>
+        <div className={styles.navListItem}>
           <Link href="#">меню</Link>
-        </li>
-        <li className={styles.navListItem}>
+        </div>
+        <div className={styles.navListItem}>
           <Link href="#">о нас</Link>
-        </li>
-        <li className={styles.navListItem}>
+        </div>
+        <div className={styles.navListItem}>
           <Link href="#">контакты</Link>
-        </li>
-      </ul>
+        </div>
+      </div>
 
       <div className={styles.navInfo}>
         <span className={styles.navInfoTitle}>заказать по телефону</span>

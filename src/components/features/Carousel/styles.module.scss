@@ -4,11 +4,11 @@
 .carousel {
   display: none;
   margin-bottom: 60px;
-  
+
   @include mobile-sm {
     display: block;
   }
-  
+
   &Slides {
     position: relative;
     border-radius: 5px;
@@ -44,7 +44,6 @@
   }
 
   &Text {
-    ;
     height: 42px;
     margin-bottom: 20px;
     color: #000;
@@ -58,20 +57,18 @@
   &Points {
     display: flex;
     justify-content: center;
+  }
 
-    // top: 1rem;
+  &PointsItem {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: #BAC4D6;
+    cursor: pointer;
 
-    &Item {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 8px;
-      background: #BAC4D6;
-      cursor: pointer;
-
-      &:last-child {
-        margin-right: 0;
-      }
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

@@ -35,7 +35,8 @@ export default function Header() {
   return (
     <header ref={ref} className={clsx(styles.header, !inView && styles.isScroll)}>
       <div className={`container ${styles.wrapper}`}>
-        <Link href="/" className={clsx(styles.logo, menuToggle && styles.logoHide)}>
+        {/* <Link href="/" className={clsx(styles.logo, menuToggle && styles.logoHide)}> */}
+        <Link href="/" className={clsx(styles.logo)}>
           <Image fill src="/assets/icons/logo.svg" alt="logo" />
         </Link>
 
@@ -63,7 +64,7 @@ export default function Header() {
             <span>{countPizzaz()}</span>
           </div>
           <div className={styles.cartText}>
-            <h4>ваш заказ</h4>
+            <h4 className={styles.cartTextTitle}>ваш заказ</h4>
             <span>
               {cartItem.length > 0 && countPizzaz() < 2 && cartItem[0].name}
               {cartItem.length >= 1 &&

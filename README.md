@@ -1,12 +1,33 @@
 # NextJS Starter
 
-Шаблон для быстрого создания проектов на Next.js 13.4+
+Тестовая работа по front-end от компании [Вебпрактик](https://webpractik.ru/)
+
+На базе шаблона [NextJS Starter](https://github.com/webpractik/nextjs-starter/)
+
+---
+
+## [Demo on Vercel](https://nextjs-starter-maxl85.vercel.app/)
+
+---
+
+## Реализовано:
+- Адаптивная верстка до 320px
+- Анимации фильтра, карточек и кнопок
+- Фильтр и корзина (Redux)
+- Фильтр на фронте, без бека
 
 ## 🚀 Как развернуть проект
 
+```bash
+git clone https://github.com/maxl85/nextjs-starter.git
+cd nextjs-starter
+npm ci
+npm run dev
 ```
-npx create-next-app -e https://github.com/webpractik/nextjs-starter
-```
+
+Перейти в браузере по адресу [http://localhost:3000](http://localhost:3000)
+
+
 
 ## 🪄 Features:
 

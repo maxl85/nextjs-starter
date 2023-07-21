@@ -24,60 +24,59 @@
     @include mobile-md {
       align-items: flex-start;
     }
+  }
 
-    &Image {
-      max-width: 314px;
-      height: auto;
-      border-radius: 130px;
-      margin-right: 32px;
+  &BlockImage {
+    max-width: 314px;
+    height: auto;
+    border-radius: 130px;
+    margin-right: 32px;
 
-      @include tablet-lg {
-        max-width: 243px;
-        border-radius: 104px;
-      }
-
-      @include mobile-md {
-        max-width: 80px;
-        border-radius: 33px;
-        margin-right: 16px;
-      }
+    @include tablet-lg {
+      max-width: 243px;
+      border-radius: 104px;
     }
 
-    &Title {
-      @include h3-title;
+    @include mobile-md {
+      max-width: 80px;
+      border-radius: 33px;
+      margin-right: 16px;
+    }
+  }
 
-      max-width: 416px;
-      margin-bottom: 12px;
+  &BlockTitle {
+    @include h3-title;
+
+    max-width: 416px;
+    margin-bottom: 12px;
+  }
+
+  &BlockText {
+    @include p-text;
+
+    max-width: 416px;
+
+    @include mobile-md {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  &.reverse {
+    flex-direction: row-reverse;
+
+    .aboutBlockImage {
+      margin-right: 0;
+      margin-left: 32px;
     }
 
-    &Text {
-      @include p-text;
-
-      max-width: 416px;
-
-      @include mobile-md {
-        font-size: 12px;
-        line-height: 18px;
-      }
-    }
-
-    &.reverse {
-      flex-direction: row-reverse;
+    @include mobile-md {
+      flex-direction: row;
 
       .aboutBlockImage {
-        margin-right: 0;
-        margin-left: 32px;
+        margin-right: 16px;
+        margin-left: 0;
       }
-
-      @include mobile-md {
-        flex-direction: row;
-
-        .aboutBlockImage {
-          margin-right: 16px;
-          margin-left: 0;
-        }
-      }
-
     }
   }
 }

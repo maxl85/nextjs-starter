@@ -1,6 +1,8 @@
 @import 'variables';
 
 .nav {
+  overflow: auto;
+  
   @include tablet-lg {
     position: fixed;
     z-index: 9;
