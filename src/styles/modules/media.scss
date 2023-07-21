@@ -1,110 +1,51 @@
 @import 'variables';
 
 @mixin max-width($width) {
-	@media only screen and (max-width: #{$width}px) {
-		@content;
-	}
-}
-
-@mixin min-width($width) {
-	@media only screen and (min-width: #{$width}px) {
-		@content;
-	}
-}
-
-@mixin min-max-width($minWidth, $maxWidth) {
-	@media only screen and (min-width: #{$minWidth}px) and (max-width: #{$maxWidth}px) {
-		@content;
-	}
-}
-
-@mixin max-height($height) {
-	@media only screen and (max-height: #{$height}px) {
-		@content;
-	}
-}
-
-@mixin min-height($height) {
-	@media only screen and (min-height: #{$height}px) {
+	@media only screen and (max-width: $width) {
 		@content;
 	}
 }
 
 // Media queries
 
-// desktop-big >= 1600px
-@mixin desktop-big() {
-	@include min-width($big-desktop) {
-		@content
-	}
-}
-
-// desktop-lg >= 1399px
-@mixin desktop-lg() {
-	@include min-width($desktop-lg) {
-		@content;
-	}
-}
-
-// desktop >= 1024
-@mixin desktop() {
-	@include min-width($desktop) {
-		@content;
-	}
-}
-
-// 1024px <= desktop-md <= 1399px
-@mixin desktop-md() {
-	@include min-max-width($desktop, $desktop-lg) {
-		@content;
-	}
-}
-
-// 992px <= desktop-sm <= 1024px
-@mixin desktop-sm() {
-	@include min-max-width($tablet, $desktop) {
-		@content;
-	}
-}
-
-// 768px <= tablet <= 991px
-@mixin tablet() {
-	@include min-max-width($mobile, $tablet) {
-		@content;
-	}
-}
-
-// mobile <= 767px
-@mixin mobile() {
-	@include max-width($mobile) {
-		@content;
-	}
-}
-
-// 576px <= mobile-lg <= 767px
-@mixin mobile-lg() {
-	@include min-max-width($mobile-sm, $mobile) {
-		@content;
-	}
-}
-
 // mobile-sm <= 575px
 @mixin mobile-sm() {
-	@include max-width($mobile-sm) {
+	@include max-width($bp-sm) {
 		@content;
 	}
 }
 
-// desktop-tablet >= 768px
-@mixin desktop-tablet() {
-	@include min-width($mobile) {
+// mobile-sm <= 767px
+@mixin mobile-md() {
+	@include max-width($bp-md) {
 		@content;
 	}
 }
 
-// tablet-mobile <= 991px
-@mixin tablet-mobile() {
-	@include max-width($tablet) {
+// tablet-sm <= 991px
+@mixin tablet-lg() {
+	@include max-width($bp-lg) {
+		@content;
+	}
+}
+
+// desktop-xl <= 1199px
+@mixin desktop-xl() {
+	@include max-width($bp-xl) {
+		@content;
+	}
+}
+
+// desktop-xxl <= 1399px
+@mixin desktop-xxl() {
+	@include max-width($bp-xxl) {
+		@content;
+	}
+}
+
+// desktop-xxl <= 1599px
+@mixin desktop-big() {
+	@include max-width($bp-big) {
 		@content;
 	}
 }

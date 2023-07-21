@@ -2,40 +2,36 @@
 @import 'mixins';
 
 .inst {
-
   &Title {
-    @include h2-desktop;
-    text-align: center;
-    margin-bottom: 13px;
+    @include h2-title;
 
-    @media screen and (max-width: $bp-lg) {
-      font-size: 40px;
-      line-height: 60px;
+    margin-bottom: 13px;
+    text-align: center;
+
+    @include tablet-lg {
       margin-bottom: 0;
     }
 
-    @media screen and (max-width: $bp-sm) {
-      font-size: 28px;
-      line-height: 35px;
+    @include mobile-sm {
       margin-bottom: 4px;
     }
   }
 
   &User {
-    @include h4-desktop;
+    @include h4-title;
+
+    margin-bottom: 46px;
     color: #848A9A;
     text-align: center;
-    margin-bottom: 46px;
 
-    @media screen and (max-width: $bp-lg) {
-      font-size: 20px;
+    @include tablet-lg {
       margin-bottom: 20px;
     }
 
-    @media screen and (max-width: $bp-lg) {
+    @include tablet-lg {
+      margin-bottom: 20px;
       font-size: 16px;
       line-height: 24px;
-      margin-bottom: 20px;
     }
   }
 
@@ -43,11 +39,11 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 
-    @media screen and (max-width: $bp-lg) {
+    @include tablet-lg {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media screen and (max-width: $bp-sm) {
+    @include mobile-sm {
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -55,13 +51,13 @@
       position: relative;
       aspect-ratio: 384 / 384;
 
-      @media screen and (max-width: $bp-lg) {
+      @include tablet-lg {
         &:nth-of-type(1n+7) {
           display: none;
         }
       }
 
-      @media screen and (max-width: $bp-sm) {
+      @include mobile-sm {
         &:nth-of-type(1n+5) {
           display: none;
         }

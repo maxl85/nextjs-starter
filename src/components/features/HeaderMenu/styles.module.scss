@@ -1,31 +1,31 @@
 @import 'variables';
 
 .nav {
-  @media screen and (max-width: $bp-lg) {
-    display: flex;
-    flex-direction: column;
+  @include tablet-lg {
     position: fixed;
-    right: -320px;
+    z-index: 9;
     top: 0;
+    right: -320px;
+    display: flex;
     width: 320px;
     height: 100%;
+    flex-direction: column;
     padding: 120px 60px 40px;
     background: #313945;
     transition: $transition;
-    z-index: 9;
 
     &.menuToggle {
-      right: 0px;
+      right: 0;
     }
   }
 
   &Logo {
-    display: none;
     position: absolute;
     top: 12px;
     left: 16px;
-
-    @media screen and (max-width: $bp-sm) {
+    display: none;
+    
+    @include mobile-sm {
       display: block;
     }
   }
@@ -33,18 +33,18 @@
   &List {
     display: flex;
 
-    @media screen and (max-width: $bp-lg) {
+    @include tablet-lg {
       flex-direction: column;
     }
 
     &Item {
       margin: 0 30px;
-
-      @media screen and (max-width: $bp-xl) {
+      
+      @include desktop-xl {
         margin: 0 10px;
       }
 
-      @media screen and (max-width: $bp-lg) {
+      @include tablet-lg {
         border-bottom: 1px solid #1d2228;
 
         &:last-child {
@@ -54,12 +54,12 @@
 
       &>a {
         color: #000;
-        font-size: 18px;
         font-family: $font-alegreya;
+        font-size: 18px;
         font-style: normal;
         font-weight: 900;
-        line-height: normal;
         letter-spacing: 1px;
+        line-height: normal;
         text-transform: uppercase;
         transition: $transition;
 
@@ -67,17 +67,17 @@
           color: #e52d2d;
         }
 
-        @media screen and (max-width: $bp-xl) {
+        @include desktop-xl {
           font-size: 16px;
         }
 
-        @media screen and (max-width: $bp-lg) {
+        @include tablet-lg {
           display: block;
           padding: 24px 0;
           color: #fff;
-          text-align: center;
           font-size: 18px;
           font-weight: 700;
+          text-align: center;
         }
       }
     }
@@ -85,23 +85,23 @@
 
   &Info {
     display: none;
-    margin-top: auto;
     flex-direction: column;
     align-items: center;
+    margin-top: auto;
     
-    @media screen and (max-width: $bp-lg) {
+    @include tablet-lg {
       display: flex;
     }
 
     &Title {
       color: #A8B0BC;
-      text-align: center;
-      font-size: 12px;
       font-family: $font-roboto;
+      font-size: 12px;
       font-style: normal;
       font-weight: 700;
-      line-height: 18px;
       letter-spacing: 1px;
+      line-height: 18px;
+      text-align: center;
       text-transform: uppercase;
     }
 
@@ -111,8 +111,8 @@
 
     &Time {
       color: #A8B0BC;
-      font-size: 12px;
       font-family: Roboto;
+      font-size: 12px;
       font-style: normal;
       font-weight: 400;
       line-height: 18px;
@@ -123,16 +123,16 @@
     display: none;
     margin-top: 40px;
     color: #FFF;
-    text-align: center;
-    font-size: 12px;
     font-family: $font-alegreya;
+    font-size: 12px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
     letter-spacing: 0.667px;
+    line-height: normal;
+    text-align: center;
     text-transform: uppercase;
 
-    @media screen and (max-width: $bp-md) {
+    @include mobile-md {
       display: flex;
       justify-content: center;
     }

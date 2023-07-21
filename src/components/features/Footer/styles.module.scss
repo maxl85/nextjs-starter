@@ -2,32 +2,33 @@
 @import 'mixins';
 
 .footer {
-  background: #000;
-  padding: 32px 0 36px;
   position: relative;
+  padding: 32px 0 36px;
+  background: #000;
+
   // z-index: -1;
 
-  @media screen and (max-width: $bp-md) {
+  @include mobile-md {
     padding: 24px 0 40px;
   }
 }
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 
-  @media screen and (max-width: $bp-md) {
+  @include mobile-md {
     flex-direction: column;
   }
 }
 
 .logo {
+  position: relative;
   width: 113px;
   height: 52px;
-  position: relative;
 
-  @media screen and (max-width: $bp-md) {
+  @include mobile-md {
     width: 80px;
     height: 36px;
     margin-bottom: 25px;
@@ -38,45 +39,56 @@
   display: flex;
   flex-direction: column;
   margin-left: 100px;
-  
-  @media screen and (max-width: $bp-xl) {
+
+  @include desktop-xl {
     margin-left: 80px;
   }
 
-  @media screen and (max-width: $bp-md) {
-    margin-left: 0;
+  @include mobile-md {
     margin-bottom: 10px;
+    margin-left: 0;
   }
 
   &>a {
     margin-bottom: 6px;
 
     &>h4 {
-      @include h4-desktop;
+      @include h4-title;
+
       color: #fff;
+
+      @include tablet-lg {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 900;
+        letter-spacing: 1.333px;
+        line-height: normal;
+        text-transform: uppercase;
+      }
     }
   }
 
   &>span {
-    @include desc-desktop;
+    @include desc-text;
+
     color: #fff;
 
-    @media screen and (max-width: $bp-md) {
+    @include mobile-md {
       text-align: center;
     }
   }
 }
 
 .confidencial {
-  color: #fff;
   margin-left: auto;
+  color: #fff;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
 
-  @media screen and (max-width: $bp-md) {
-    text-align: center;
+  @include mobile-md {
     margin-left: 0;
+    text-align: center;
   }
 }

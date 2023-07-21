@@ -2,47 +2,48 @@
 @import 'mixins';
 
 .cart {
-  display: none;
   position: fixed;
+  z-index: 20;
   top: 0;
   left: 0;
+  display: none;
   width: 100%;
   height: 100%;
-  z-index: 20;
-  transition: $transition;
   opacity: 0;
+  transition: $transition;
 
   &.visible {
-    opacity: 1;
     display: block;
+    opacity: 1;
   }
 
   &Bg {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.9;
     background: #000;
+    opacity: 0.9;
   }
 
   &Modal {
     position: absolute;
-    left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 704px;
+    left: 50%;
+    overflow: auto;
     width: 100%;
+    max-width: 704px;
     height: 90%;
     padding: 32px 32px 40px;
-    overflow: auto;
     border-radius: 5px;
     background: #FFF;
+    transform: translate(-50%, -50%);
   }
 
   &Title {
-    @include h3-desktop;
+    @include h3-title;
+
     margin-bottom: 24px;
   }
 
@@ -54,9 +55,9 @@
     height: 35px;
     padding: 0;
     border: none;
-    font-size: 35px;
     background: #FFF;
     cursor: pointer;
+    font-size: 35px;
 
     &:hover {
       color: #E52D2D;
@@ -71,10 +72,10 @@
   }
 
   &Item {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    position: relative;
     padding: 8px;
     border-top: 1px solid #DCDFE2;
 
@@ -83,14 +84,15 @@
       width: 100px;
       height: 100px;
       margin-right: 4px;
+
       // border: 1px solid black;
 
       &WrapIcon {
+        position: absolute;
+        top: 0;
+        left: -4px;
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 0px;
-        left: -4px;
 
       }
 
@@ -104,13 +106,13 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         width: 83px;
         height: 83px;
+        transform: translate(-50%, -50%);
 
         circle {
-          stroke-width: 3;
           stroke-dasharray: 10;
+          stroke-width: 3;
         }
       }
 
@@ -118,13 +120,13 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         width: 68px;
         height: 68px;
+        transform: translate(-50%, -50%);
 
         circle {
-          stroke-width: 3;
           stroke-dasharray: 15;
+          stroke-width: 3;
         }
       }
 
@@ -133,6 +135,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
         // width: 68px;
         // height: 68px;
 
@@ -154,15 +157,16 @@
     }
 
     &Pizza {
-      margin-right: auto;
       width: 136px;
+      margin-right: auto;
+
       // display: flex;
       // flex-direction: column;
 
       &Name {
         color: #000;
-        font-size: 18px;
         font-family: $font-alegreya;
+        font-size: 18px;
         font-style: normal;
         font-weight: 800;
         line-height: normal;
@@ -170,8 +174,8 @@
 
       &Size {
         color: #000;
-        font-size: 12px;
         font-family: $font-roboto;
+        font-size: 12px;
         font-style: normal;
         font-weight: 400;
         line-height: 18px;
@@ -183,13 +187,13 @@
       align-items: center;
 
       &Btn {
-        border: none;
         padding: 0;
+        border: none;
+        background: #FFF;
+        color: #A9A9A9;
+        cursor: pointer;
         font-size: 28px;
         line-height: 1px;
-        color: #A9A9A9;
-        background: #FFF;
-        cursor: pointer;
 
         svg path {
           fill: #C5CBD5;
@@ -209,30 +213,30 @@
       }
 
       &Input {
-        margin: 0 7px;
-        padding: 11px;
         max-width: 60px;
-        border-radius: 4px;
+        padding: 11px;
         border: 1px solid #C4C7CA;
+        border-radius: 4px;
+        margin: 0 7px;
         background: #FFF;
-
         color: #000;
-        text-align: center;
-        font-size: 16px;
         font-family: $font-roboto;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: 18px;
+        text-align: center;
       }
     }
 
     &Price {
-      @include h4-desktop;
+      @include h4-title;
+
+      width: 97px;
       margin-right: 32px;
       margin-left: auto;
-      width: 97px;
 
-      @media screen and (max-width: $bp-sm) {
+      @include mobile-sm {
         margin-right: 0;
         font-size: 18px;
         text-align: end;
@@ -242,15 +246,15 @@
     &DelBtn {
       position: absolute;
       top: 8px;
-      right: 0px;
+      right: 0;
       width: 24px;
       height: 24px;
       padding: 0;
       border: none;
-      font-size: 17px;
-      color: #A9A9A9;
       background: #FFF;
+      color: #A9A9A9;
       cursor: pointer;
+      font-size: 17px;
 
       &:hover {
         color: #E52D2D;
@@ -260,34 +264,34 @@
 
   &Total {
     display: flex;
-    justify-content: flex-end;
     align-items: flex-end;
+    justify-content: flex-end;
 
     &Text {
+      margin-right: 20px;
+      margin-bottom: 5px;
       color: #000;
-      font-size: 18px;
       font-family: $font-alegreya;
+      font-size: 18px;
       font-style: normal;
       font-weight: 800;
       line-height: normal;
-      margin-right: 20px;
-      margin-bottom: 5px;
 
-      @media screen and (max-width: $bp-sm) {
-        margin-bottom: 0px;
+      @include mobile-sm {
+        margin-bottom: 0;
       }
     }
 
     &Sum {
       color: #000;
-      text-align: right;
-      font-size: 32px;
       font-family: $font-alegreya;
+      font-size: 32px;
       font-style: normal;
       font-weight: 800;
       line-height: normal;
+      text-align: right;
 
-      @media screen and (max-width: $bp-sm) {
+      @include mobile-sm {
         font-size: 24px;
       }
     }
@@ -295,15 +299,15 @@
 
   .form {
     &Title {
+      margin-bottom: 14px;
       color: #000;
-      font-size: 18px;
       font-family: $font-alegreya;
+      font-size: 18px;
       font-style: normal;
       font-weight: 800;
       line-height: normal;
-      margin-bottom: 14px;
 
-      @media screen and (max-width: $bp-sm) {
+      @include mobile-sm {
         margin-top: 24px;
       }
     }
@@ -312,7 +316,7 @@
       display: flex;
       margin-bottom: 24px;
 
-      @media screen and (max-width: $bp-sm) {
+      @include mobile-sm {
         flex-direction: column;
         gap: 24px;
       }
@@ -330,14 +334,14 @@
 
       &.good {
         label {
+          z-index: 2;
           top: 0;
           left: 9px;
           padding: 0 4px;
-          transform: translateY(-50%);
-          font-size: 13px;
-          color: #C4C7CA;
           background: #fff;
-          z-index: 2;
+          color: #C4C7CA;
+          font-size: 13px;
+          transform: translateY(-50%);
         }
       }
 
@@ -347,29 +351,29 @@
         }
 
         label {
+          z-index: 2;
           top: 0;
           left: 9px;
           padding: 0 4px;
-          transform: translateY(-50%);
           background: #FFF;
-          font-size: 13px;
           color: #FB7A7A !important;
-          z-index: 2;
+          font-size: 13px;
+          transform: translateY(-50%);
         }
       }
 
       &Input {
+        z-index: 1;
         width: 100%;
         padding: 13px 12px;
         border: 1px solid #C4C7CA;
-        outline: none;
         border-radius: 4px;
         background: transparent;
+        color: #000;
         font-family: $font-roboto;
         font-size: 16px;
-        color: #000;
+        outline: none;
         transition: $transition;
-        z-index: 1;
 
         &:hover {
           border-color: #000;
@@ -379,31 +383,31 @@
           border-color: #3F8FE5;
 
           &+label {
+            z-index: 1;
             top: 0;
             left: 9px;
             padding: 0 4px;
-            transform: translateY(-50%);
             background: #fff;
-            font-size: 13px;
             color: #3F8FE5;
-            z-index: 1;
+            font-size: 13px;
+            transform: translateY(-50%);
           }
         }
       }
 
       &Lable {
         position: absolute;
+        z-index: -1;
+        top: 14px;
+        left: 12px;
         width: auto;
         height: auto;
-        left: 12px;
-        top: 14px;
         padding: 0;
+        background: transparent;
+        color: #A6A6A6;
         font-family: $font-roboto;
         font-size: 16px;
-        color: #A6A6A6;
-        z-index: -1;
         transition: $transition;
-        background: transparent;
       }
     }
 
@@ -419,11 +423,11 @@
       }
 
       &Radio:checked+label {
-        &:before {
+        &::before {
           opacity: 1;
         }
 
-        &:after {
+        &::after {
           border-color: #000;
         }
       }
@@ -431,20 +435,19 @@
       &Label {
         position: relative;
         padding-left: 30px;
-        cursor: pointer;
         color: #000;
-        font-size: 16px;
+        cursor: pointer;
         font-family: $font-roboto;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: 18px;
 
-        @media screen and (max-width: $bp-sm) {
+        @include mobile-sm {
           font-size: 12px;
         }
 
-        &:before {
-          content: '';
+        &::before {
           position: absolute;
           top: 4px;
           left: 5px;
@@ -452,22 +455,23 @@
           height: 10px;
           border-radius: 50%;
           background: #E52D2D;
+          content: '';
           opacity: 0;
         }
 
-        &:after {
-          content: '';
+        &::after {
           position: absolute;
           top: -1px;
           left: 0;
           width: 20px;
           height: 20px;
-          border-radius: 50%;
           border: 1px solid #C4C7CA;
+          border-radius: 50%;
+          content: '';
           transition: $transition;
         }
 
-        &:hover:after {
+        &:hover::after {
           border-color: #000;
         }
       }
@@ -477,51 +481,50 @@
 
     &BuyBtn {
       position: relative;
-      max-width: 240px;
-      width: 100%;
-      padding: 14px 0;
-      border-radius: 5px;
-      background: #E52D2D;
-      cursor: pointer;
-      border: none;
-      transition: $transition;
-      outline: none;
       z-index: 1;
+      width: 100%;
+      max-width: 240px;
+      padding: 14px 0;
+      border: none;
+      border-radius: 5px;
       margin-bottom: 23px;
-
+      background: #E52D2D;
       color: #FFF;
-      font-size: 18px;
+      cursor: pointer;
       font-family: $font-alegreya;
+      font-size: 18px;
       font-style: normal;
       font-weight: 900;
-      line-height: normal;
       letter-spacing: 1px;
+      line-height: normal;
+      outline: none;
       text-transform: uppercase;
+      transition: $transition;
 
-      @media screen and (max-width: $bp-lg) {
+      @include tablet-lg {
         padding: 9px 0;
         font-size: 16px;
       }
 
-      &:after {
-        content: '';
+      &::after {
         position: absolute;
+        z-index: -1;
         top: 50%;
         left: 0;
         width: 100%;
         height: 0;
-        background: #FF3C3C;
         border-radius: 5px;
+        background: #FF3C3C;
+        content: '';
         transform: translateY(-50%);
         transition: $transition;
-        z-index: -1;
       }
 
-      &:active:after {
+      &:active::after {
         background: #BF221E;
       }
 
-      &:hover:after {
+      &:hover::after {
         height: 100%;
       }
 
@@ -534,8 +537,8 @@
 
     &Policy {
       color: #848A9A;
-      font-size: 12px;
       font-family: $font-roboto;
+      font-size: 12px;
       font-style: normal;
       font-weight: 400;
       line-height: 18px;

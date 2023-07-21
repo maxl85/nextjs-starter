@@ -5,7 +5,7 @@ export default {
         'stylelint-config-idiomatic-order',
         'stylelint-config-sass-guidelines',
     ],
-    customSyntax: 'postcss-sass',
+    customSyntax: 'postcss-scss',
     defaultSeverity: 'warning',
     rules: {
         'font-family-no-missing-generic-family-keyword': null,

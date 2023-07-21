@@ -9,7 +9,7 @@
         "prod": "next start",
         "type-check": "tsc --project tsconfig.json --noEmit --pretty",
         "lint": "next lint --format=pretty",
-        "stylelint": "stylelint '**/*.module.sass' --fix --config ./config/stylelint.config.mjs",
+        "stylelint": "stylelint **/*.module.scss --fix --config ./config/stylelint.config.mjs",
         "format": "pretty-quick --ignore-path .gitignore --pattern \"src/**/*.+(ts|js|tsx|json)\"",
         "analyze": "cross-env ANALYZE=true npm run build",
         "check-all": "run-p type-check lint format test-run",

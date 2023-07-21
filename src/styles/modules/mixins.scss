@@ -1,57 +1,6 @@
 @import 'variables';
 
-@mixin max-content() {
-	max-width: max-content;
-	width: 100%;
-}
-
-@mixin full-wrapper() {
-	margin: 0 auto;
-	max-width: $full-width;
-	min-width: $min-width;
-
-	@include desktop-lg {
-		padding: 0 64px;
-	}
-
-	@include desktop() {
-		padding: 0 32px;
-	}
-
-	@include tablet-mobile() {
-		padding: 0 16px;
-	}
-}
-
-@mixin width($width) {
-	max-width: $width;
-	width: $width;
-}
-
-@mixin base-hover() {
-	transition: opacity .3s ease;
-
-	&:hover {
-		opacity: .7;
-	}
-}
-
-@mixin gradient($color1, $color2) {
-	background: $color2;
-	background: linear-gradient(top, $color1, $color2);
-}
-
-@mixin rotate($rotate) {
-	transform: rotate($rotate+deg);
-}
-
-
-
-
-
-// ============================================================================
-
-@mixin h1-desktop {
+@mixin h1-title {
   color: #000;
   font-size: 72px;
   font-family: $font-alegreya;
@@ -59,21 +8,25 @@
   font-weight: 900;
   line-height: 90px;
   letter-spacing: 1px;
+
+  @include desktop-xl {
+    font-size: 60px;
+  }
+
+  @include tablet-lg {
+    font-size: 52px;
+    line-height: 65px;
+  }
+
+  @include mobile-sm {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
 }
 
-@mixin h1-tablet {
-  font-size: 52px;
-  line-height: 65px;
-}
 
-@mixin h1-mobile {
-  font-size: 40px;
-  line-height: 50px;
-}
-
-// ============================================================================
-
-@mixin h2-desktop {
+@mixin h2-title {
   color: #000;
   font-size: 52px;
   font-family: $font-alegreya;
@@ -81,64 +34,75 @@
   font-weight: 900;
   line-height: 65px;
   letter-spacing: 1px;
+  
+  @include tablet-lg {
+    font-size: 40px;
+    line-height: 60px;
+  }
+  
+  @include mobile-sm {
+    font-size: 28px;
+    line-height: 35px;
+  }
 }
 
-
-// ============================================================================
-
-@mixin h3-desktop {
+@mixin h3-title {
   color: #000;
   font-size: 32px;
   font-family: $font-alegreya;
   font-style: normal;
   font-weight: 800;
   line-height: 40px;
+  
+  @include tablet-lg {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include mobile-sm {
+    font-size: 20px;
+    line-height: 25px;
+  }
 }
 
-@mixin h3-mobile {
-  color: #000;
-  font-size: 20px;
-  font-family: $font-alegreya;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 25px;
-}
-
-// ============================================================================
-
-@mixin h4-desktop {
+@mixin h4-title {
   color: #000;
   font-size: 24px;
   font-family: $font-alegreya;
   font-style: normal;
   font-weight: 800;
   line-height: 30px;
+  
+  @include tablet-lg {
+    font-size: 20px;
+    line-height: 25px;
+  }
 }
 
-// ============================================================================
-
-@mixin accent-desktop {
+@mixin accent {
   color: #000;
   font-size: 24px;
   font-family: $font-roboto;
   font-style: normal;
   font-weight: 400;
   line-height: 36px;
+  
+  @include desktop-xl {
+    font-size: 22px;
+  }
+
+  @include tablet-lg {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  @include mobile-sm {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
-@mixin accent-tablet {
-  font-size: 18px;
-  line-height: 27px;
-}
-
-@mixin accent-mobile {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-// ============================================================================
-
-@mixin p-desktop {
+@mixin p-text {
   color: #000;
   font-size: 14px;
   font-family: $font-roboto;
@@ -147,10 +111,7 @@
   line-height: 21px;
 }
 
-// ============================================================================
-
-
-@mixin desc-desktop {
+@mixin desc-text {
   color: #848A9A;
   font-size: 12px;
   font-family: $font-roboto;

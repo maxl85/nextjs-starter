@@ -3,34 +3,31 @@
 
 .promo {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 32px;
   margin-bottom: 112px;
+  column-gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
   
-  @media screen and (max-width: $bp-lg) {
+  @include tablet-lg {
     margin-bottom: 80px;
   }
   
-  @media screen and (max-width: $bp-sm) {
+  @include mobile-sm {
     display: none;
   }
 
   &Image {
     position: relative;
-    aspect-ratio: 416 / 247;
     margin-top: 12px;
+    aspect-ratio: 416 / 247;
   }
 
   &Title {
-    @include h4-desktop;
-    margin-top: 14px;
+    @include h4-title;
 
-    @media screen and (max-width: $bp-lg) {
-      @include h3-mobile;
-    }
+    margin-top: 12px;
   }
 
   &Text {
-    @include p-desktop;
+    @include p-text;
   }
 }

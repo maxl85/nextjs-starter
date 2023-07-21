@@ -3,18 +3,18 @@
 
 
 .header {
-  margin: 46px 0;
   position: sticky;
-  top: -1px;
-  background: #fff;
   z-index: 10;
+  top: -1px;
+  margin: 46px 0;
+  background: #fff;
 
-  @media screen and (max-width: $bp-lg) {
+  @include tablet-lg {
     margin-top: 32px;
     margin-bottom: 41px;
   }
 
-  @media screen and (max-width: $bp-sm ) {
+  @include mobile-sm {
     margin-top: 12px;
     margin-bottom: 21px;
   }
@@ -22,29 +22,28 @@
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
+  position: relative;
   width: 182px;
   height: 84px;
-  position: relative;
   transition: $transition;
 
-  @media screen and (max-width: $bp-xl) {
+  @include desktop-xl {
     width: 130px;
     height: 60px;
   }
 
-  @media screen and (max-width: $bp-sm) {
+  @include mobile-sm {
     width: 85px;
     height: 39px;
   }
   
   &Hide {
-    
-    @media screen and (max-width: $bp-sm) {
+    @include mobile-sm {
       opacity: 0;
     }
   }
@@ -54,22 +53,22 @@
   display: flex;
   align-items: center;
 
-  @media screen and (max-width: $bp-lg) {
+  @include tablet-lg {
     margin-left: auto;
   }
 
   &WrapImage {
+    position: relative;
     width: 40px;
     height: 40px;
-    position: relative;
     margin-right: 12px;
     transition: $transition;
 
-    @media screen and (max-width: $bp-lg) {
+    @include tablet-lg {
       margin-right: 0;
     }
 
-    @media screen and (max-width: $bp-sm) {
+    @include mobile-sm {
       width: 32px;
       height: 32px;
     }
@@ -79,18 +78,18 @@
     display: flex;
     flex-direction: column;
 
-    @media screen and (max-width: $bp-lg) {
+    @include tablet-lg {
       display: none;
     }
 
     &>h4 {
       color: #000;
-      font-size: 24px;
       font-family: $font-alegreya;
+      font-size: 24px;
       font-style: normal;
       font-weight: 900;
-      line-height: normal;
       letter-spacing: 1.333px;
+      line-height: normal;
       text-transform: uppercase;
       transition: $transition;
 
@@ -98,13 +97,13 @@
         color: #e52d2d;
       }
 
-      @media screen and (max-width: $bp-xl) {
+      @include desktop-xl {
         font-size: 20px;
       }
     }
 
     &>span {
-      @include desc-desktop;
+      @include desc-text;
     }
   }
 }
@@ -114,21 +113,21 @@
   align-items: flex-end;
   cursor: pointer;
 
-  @media screen and (max-width: $bp-lg) {
+  @include tablet-lg {
     margin-left: 32px;
   }
 
-  @media screen and (max-width: $bp-sm) {
+  @include mobile-sm {
     margin-left: 24px;
   }
 
   &WrapImage {
+    position: relative;
     width: 40px;
     height: 40px;
-    position: relative;
     transition: $transition;
 
-    @media screen and (max-width: $bp-sm) {
+    @include mobile-sm {
       width: 32px;
       height: 32px;
     }
@@ -138,25 +137,25 @@
     position: relative;
     margin-right: 12px;
 
-    @media screen and (max-width: $bp-lg) {
+    @include tablet-lg {
       margin-right: 0;
     }
 
     &>span {
       position: absolute;
-      right: -10px;
       top: -10px;
+      right: -10px;
       width: 20px;
       height: 20px;
+      border-radius: 50%;
       background: #e52d2d;
       color: #fff;
-      text-align: center;
-      font-size: 11px;
       font-family: $font-roboto;
+      font-size: 11px;
       font-style: normal;
       font-weight: 500;
       line-height: 21px;
-      border-radius: 50%
+      text-align: center
     }
   }
 
@@ -164,22 +163,22 @@
     display: flex;
     flex-direction: column;
 
-    @media screen and (max-width: $bp-lg) {
+    @include tablet-lg {
       display: none;
     }
 
     &>h4 {
       color: #000;
-      font-size: 18px;
       font-family: $font-alegreya;
+      font-size: 18px;
       font-style: normal;
       font-weight: 900;
-      line-height: normal;
       letter-spacing: 1px;
+      line-height: normal;
       text-transform: uppercase;
       transition: $transition;
 
-      @media screen and (max-width: $bp-xl) {
+      @include desktop-xl {
         font-size: 16px;
       }
 
@@ -189,9 +188,10 @@
     }
 
     &>span {
-      @include desc-desktop;
-      height: 18px;
+      @include desc-text;
+
       width: 160px;
+      height: 18px;
     }
   }
 }
@@ -201,22 +201,21 @@
   height: 48px;
   border-radius: 50%;
   background-color: #eff0f1;
-
   color: #000;
-  font-size: 18px;
   font-family: $font-alegreya;
+  font-size: 18px;
   font-style: normal;
   font-weight: 900;
-  line-height: normal;
   letter-spacing: 1px;
+  line-height: normal;
   text-transform: uppercase;
   transition: $transition;
 
-  @media screen and (max-width: $bp-lg) {
+  @include tablet-lg {
     margin-left: 70px;
   }
 
-  @media screen and (max-width: $bp-sm) {
+  @include mobile-sm {
     display: none;
   }
 
@@ -225,11 +224,11 @@
   }
 
   &>span {
-    height: 100%;
-    width: 100%;
     display: flex;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
     align-items: center;
+    justify-content: center;
   }
 }
 
@@ -237,7 +236,7 @@
 .isScroll {
   &.header {
     padding: 15px 0;
-    box-shadow: 0px 2px 5px 0px rgba(165, 169, 176, 0.30);
+    box-shadow: 0 2px 5px 0 rgb(165 169 176 / 30%);
   }
 
   .logo {
@@ -273,10 +272,10 @@
   }
 
   .language {
-    font-size: 14px;
-    font-weight: 700;
     width: 40px;
     height: 40px;
+    font-size: 14px;
+    font-weight: 700;
   }
 
 }

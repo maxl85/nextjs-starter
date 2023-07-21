@@ -3,43 +3,40 @@
 
 
 .delivery {
-  background: #F8F6F3;
   padding: 72px 0 80px;
+  background: #F8F6F3;
 
-  @media screen and (max-width: $bp-lg) {
+  @include tablet-lg {
     padding-top: 40px;
     padding-bottom: 60px;
   }
-
-  @media screen and (max-width: $bp-md) {
+  
+  @include mobile-md {
     padding-top: 24px;
     padding-bottom: 40px;
   }
 
   &Title {
-    @include h2-desktop;
-    text-align: center;
+    @include h2-title;
+
     margin-bottom: 26px;
+    text-align: center;
     
-    @media screen and (max-width: $bp-lg) {
-      font-size: 40px;
-      line-height: 60px;
+    @include tablet-lg {
       margin-bottom: 20px;
     }
     
-    @media screen and (max-width: $bp-md) {
-      font-size: 28px;
-      line-height: 35px;
+    @include mobile-md {
       margin-bottom: 12px;
     }
   }
 
   &Grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     column-gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
     
-    @media screen and (max-width: $bp-md) {
+    @include mobile-md {
       grid-template-columns: 1fr;
       row-gap: 12px;
     }
@@ -51,56 +48,58 @@
       padding: 32px 24px;
       border-radius: 5px;
       background: #FFF;
-      box-shadow: 0px 2px 5px 0px rgba(199, 193, 168, 0.30);
+      box-shadow: 0 2px 5px 0 rgb(199 193 168 / 30%);
 
-      @media screen and (max-width: $bp-lg) {
+      @include tablet-lg {
         flex-direction: column;
         align-items: flex-start;
         padding: 25px 20px;
       }
       
-      @media screen and (max-width: $bp-md) {
+      @include mobile-md {
         flex-direction: row;
       }
 
       &Icon {
+        position: relative;
         width: 80px;
         height: 80px;
-        position: relative;
-        margin-right: 24px;
         flex-shrink: 0;
+        margin-right: 24px;
 
-        @media screen and (max-width: $bp-lg) {
+        @include tablet-lg {
           width: 56px;
           height: 54px;
-          margin-top: 0px;
+          margin-top: 0;
           margin-bottom: 12px;
         }
         
-        @media screen and (max-width: $bp-md) {
+        @include mobile-md {
           width: 48px;
           height: 48px;
+          margin-top: 7px;
           margin-right: 14px;
           margin-bottom: 0;
-          margin-top: 7px;
         }
       }
 
       &Title {
-        @include h4-desktop;
+        @include h4-title;
+
         margin-bottom: 6px;
         
-        @media screen and (max-width: $bp-lg) {
+        @include tablet-lg {
           font-size: 20px;
         }
         
-        @media screen and (max-width: $bp-md) {
+        @include mobile-md {
           font-size: 18px;
         }
       }
 
       &Text {
-        @include desc-desktop;
+        @include desc-text;
+
         color: #000;
       }
     }

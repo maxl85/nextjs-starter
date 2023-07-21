@@ -2,21 +2,17 @@
 @import 'mixins';
 
 .catalog {
-
   &Title {
-    @include h2-desktop;
-    text-align: center;
-    margin-bottom: 55px;
+    @include h2-title;
 
-    @media screen and (max-width: $bp-lg) {
-      font-size: 40px;
-      line-height: 60px;
+    margin-bottom: 55px;
+    text-align: center;
+
+    @include tablet-lg {
       margin-bottom: 20px;
     }
     
-    @media screen and (max-width: $bp-sm) {
-      font-size: 28px;
-      line-height: 35px;
+    @include mobile-sm {
       margin-bottom: 24px;
     }
   }
@@ -26,7 +22,7 @@
     justify-content: center;
     margin-bottom: 40px;
     
-    @media screen and (max-width: $bp-sm) {
+    @include mobile-sm {
       margin-bottom: 20px;
     }
 
@@ -42,10 +38,10 @@
         }
       }
 
-      @media screen and (max-width: $bp-sm) {
+      @include mobile-sm {
         &:hover {
           .catalogCategoryItemIcon {
-            top: 0px;
+            top: 0;
             opacity: 1;
           }
         }
@@ -65,38 +61,38 @@
 
       &Icon {
         position: absolute;
-        left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        left: 50%;
         opacity: 0;
+        transform: translate(-50%, -50%);
         transition: $transition;
 
-        @media screen and (max-width: $bp-sm) {
+        @include mobile-sm {
           position: relative;
-          left: 0;
           top: 0;
-          transform: none;
+          left: 0;
           opacity: 1;
+          transform: none;
         }
       }
 
       &Text {
         position: relative;
         color: #000;
-        font-size: 18px;
         font-family: $font-alegreya;
+        font-size: 18px;
         font-style: normal;
         font-weight: 900;
-        line-height: normal;
         letter-spacing: 1px;
+        line-height: normal;
         text-transform: uppercase;
         transition: $transition;
 
-        @media screen and (max-width: $bp-lg) {
+        @include tablet-lg {
           font-size: 16px;
         }
 
-        @media screen and (max-width: $bp-sm) {
+        @include mobile-sm {
           display: none;
         }
       }
@@ -105,19 +101,19 @@
 
   &Grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px 32px;
     margin-bottom: 100px;
+    gap: 32px 32px;
+    grid-template-columns: repeat(4, 1fr);
 
-    @media screen and (max-width: $bp-xl) {
+    @include desktop-xl {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media screen and (max-width: $bp-md) {
+    @include mobile-md {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media screen and (max-width: $bp-sm) {
+    @include mobile-sm {
       grid-template-columns: 1fr;
     }
   }
