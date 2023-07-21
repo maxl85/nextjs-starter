@@ -24,6 +24,24 @@
     @include mobile-md {
       align-items: flex-start;
     }
+    
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+  
+      .aboutBlockImage {
+        margin-right: 0;
+        margin-left: 32px;
+      }
+  
+      @include mobile-md {
+        flex-direction: row;
+  
+        .aboutBlockImage {
+          margin-right: 16px;
+          margin-left: 0;
+        }
+      }
+    }
   }
 
   &BlockImage {
@@ -62,21 +80,5 @@
     }
   }
 
-  &.reverse {
-    flex-direction: row-reverse;
-
-    .aboutBlockImage {
-      margin-right: 0;
-      margin-left: 32px;
-    }
-
-    @include mobile-md {
-      flex-direction: row;
-
-      .aboutBlockImage {
-        margin-right: 16px;
-        margin-left: 0;
-      }
-    }
-  }
+  
 }

@@ -55,7 +55,7 @@ export default function Header() {
         <div
           className={styles.cart}
           role="presentation"
-          onClick={() => dispatch(showCart(!cartVisible))}
+          onClick={() => dispatch(showCart(!cartVisible && countPizzaz() !== 0))}
         >
           <div className={styles.cartIcon}>
             <div className={styles.cartWrapImage}>

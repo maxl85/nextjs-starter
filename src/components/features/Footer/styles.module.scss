@@ -5,10 +5,9 @@
   position: relative;
   padding: 32px 0 36px;
   background: #000;
-
   // z-index: -1;
 
-  @include mobile-md {
+  @include mobile-sm {
     padding: 24px 0 40px;
   }
 }
@@ -18,18 +17,30 @@
   align-items: center;
   justify-content: space-between;
 
-  @include mobile-md {
+  @include mobile-sm {
     flex-direction: column;
   }
 }
 
 .logo {
   position: relative;
-  width: 113px;
+  width: 112px;
   height: 52px;
 
-  @include mobile-md {
-    width: 80px;
+  &:hover {
+    svg path {
+      transition: $transition;
+      fill: #E52D2D;
+    }
+  }
+
+  @include tablet-lg {
+    width: 90px;
+    height: 42px;
+  }
+
+  @include mobile-sm {
+    width: 79px;
     height: 36px;
     margin-bottom: 25px;
   }
@@ -45,35 +56,39 @@
   }
 
   @include mobile-md {
+    margin-left: auto;
+  }
+
+  @include mobile-sm {
     margin-bottom: 10px;
     margin-left: 0;
   }
 
   &>a {
     margin-bottom: 6px;
+    @include h4-title;
+    color: #fff;
+    transition: $transition;
 
-    &>h4 {
-      @include h4-title;
+    &:hover {
+      color: #E52D2D;
+    }
 
-      color: #fff;
-
-      @include tablet-lg {
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 900;
-        letter-spacing: 1.333px;
-        line-height: normal;
-        text-transform: uppercase;
-      }
+    @include tablet-lg {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 900;
+      letter-spacing: 1.333px;
+      line-height: normal;
+      text-transform: uppercase;
     }
   }
 
   &>span {
     @include desc-text;
-
     color: #fff;
 
-    @include mobile-md {
+    @include mobile-sm {
       text-align: center;
     }
   }
@@ -86,8 +101,13 @@
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  transition: $transition;
 
-  @include mobile-md {
+  &:hover {
+    color: #E52D2D;
+  }
+
+  @include mobile-sm {
     margin-left: 0;
     text-align: center;
   }

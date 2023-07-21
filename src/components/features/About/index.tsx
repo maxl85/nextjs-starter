@@ -23,7 +23,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className={clsx(styles.aboutBlock, styles.reverse)}>
+        <div className={clsx(styles.aboutBlock)}>
           <Image className={styles.aboutBlockImage} src={imgAbout02} alt="about02" />
           <div>
             <h3 className={styles.aboutBlockTitle}>Используем только свежие ингридиенты</h3>
