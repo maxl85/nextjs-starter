@@ -13,10 +13,10 @@ export default function Delivery() {
               <Image fill src="/assets/icons/delivery-order.svg" alt="Icon" />
             </div>
             <div>
-              <h4 className={styles.deliveryGridBlockTitle}>Заказ</h4>
-              <p className={styles.deliveryGridBlockText}>
+              <span className={styles.deliveryGridBlockTitle}>Заказ</span>
+              <span className={styles.deliveryGridBlockText}>
                 После оформления заказа мы свяжемся с вами для уточнения деталей.
-              </p>
+              </span>
             </div>
           </div>
 
@@ -25,10 +25,10 @@ export default function Delivery() {
               <Image fill src="/assets/icons/delivery-delivery.svg" alt="Icon" />
             </div>
             <div>
-              <h4 className={styles.deliveryGridBlockTitle}>Доставка курьером</h4>
-              <p className={styles.deliveryGridBlockText}>
+              <span className={styles.deliveryGridBlockTitle}>Доставка курьером</span>
+              <span className={styles.deliveryGridBlockText}>
                 Мы доставим вашу пиццу горячей. Бесплатная доставка по городу.
-              </p>
+              </span>
             </div>
           </div>
 
@@ -37,10 +37,10 @@ export default function Delivery() {
               <Image fill src="/assets/icons/delivery-payment.svg" alt="Icon" />
             </div>
             <div>
-              <h4 className={styles.deliveryGridBlockTitle}>Оплата</h4>
-              <p className={styles.deliveryGridBlockText}>
+              <span className={styles.deliveryGridBlockTitle}>Оплата</span>
+              <span className={styles.deliveryGridBlockText}>
                 Оплатить можно наличными или картой курьеру. И золотом тоже можно.
-              </p>
+              </span>
             </div>
           </div>
         </div>

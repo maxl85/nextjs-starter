@@ -4,9 +4,9 @@
 .inst {
   &Title {
     @include h2-title;
-
     margin-bottom: 13px;
     text-align: center;
+    padding: 0 20px;
 
     @include tablet-lg {
       margin-bottom: 0;
@@ -19,7 +19,7 @@
 
   &User {
     @include h4-title;
-
+    display: block;
     margin-bottom: 46px;
     color: #848A9A;
     text-align: center;

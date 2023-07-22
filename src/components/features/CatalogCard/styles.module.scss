@@ -154,6 +154,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
 
     @include mobile-sm {
       align-items: flex-start;
@@ -161,9 +162,9 @@
 
     &Name {
       @include h4-title;
-
       margin-bottom: 6px;
       text-align: center;
+      transition: $transition;
 
       @include tablet-lg {
         margin-bottom: 4px;
@@ -173,7 +174,6 @@
 
     &Text {
       @include desc-text;
-
       margin-bottom: 8px;
       text-align: center;
 
@@ -184,7 +184,7 @@
 
     &P {
       @include desc-text;
-
+      margin-top: auto;
       margin-bottom: 6px;
       color: #000;
       text-align: center;

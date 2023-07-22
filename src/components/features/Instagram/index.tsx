@@ -8,13 +8,13 @@ export default function Instagram() {
   return (
     <section className="inst">
       <h2 className={styles.instTitle}>Следите за нами в Instagram</h2>
-      <Link href="#">
-        <h4 className={styles.instUser}>@pizzamenu</h4>
+      <Link href="#" target="_blank" rel="noopener noreferrer" className={styles.instUser}>
+        @pizzamenu
       </Link>
 
       <div className={styles.instGrid}>
         {imgLink.map(item => (
-          <Link key={item} href="#" className={styles.instGridImage}>
+          <div key={item} className={styles.instGridImage}>
             <Image
               fill
               src={item}
@@ -22,7 +22,7 @@ export default function Instagram() {
               style={{ objectFit: 'contain' }}
               alt="instagram"
             />
-          </Link>
+          </div>
         ))}
       </div>
     </section>

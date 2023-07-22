@@ -76,9 +76,9 @@ export default function CatalogCard(props: Props) {
       </div>
 
       <div className={styles.cardDesc}>
-        <h4 className={styles.cardDescName}>{props.name}</h4>
-        <p className={styles.cardDescText}>{props.description}</p>
-        <p className={styles.cardDescP}>Размер, см:</p>
+        <span className={styles.cardDescName}>{props.name}</span>
+        <span className={styles.cardDescText}>{props.description}</span>
+        <span className={styles.cardDescP}>Размер, см:</span>
         <div className={styles.cardDescSizes}>
           {props.sizes.map((size, i) => (
             <button
@@ -91,7 +91,7 @@ export default function CatalogCard(props: Props) {
             </button>
           ))}
         </div>
-        <p className={styles.cardDescPrice}>{`${props.price[props.activeSize]} руб.`}</p>
+        <span className={styles.cardDescPrice}>{`${props.price[props.activeSize]} руб.`}</span>
 
         <button className={styles.cardDescBuyBtn} type="button" onClick={handleClickBuy}>
           Заказать

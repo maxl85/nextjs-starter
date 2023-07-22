@@ -60,9 +60,9 @@ export default function Catalog() {
       <section className={styles.catalog}>
         <h2 className={styles.catalogTitle}>Выберите пиццу</h2>
 
-        <ul className={styles.catalogCategory}>
+        <div className={styles.catalogCategory}>
           {categories.map((category, i) => (
-            <li
+            <div
               key={i}
               role="presentation"
               className={clsx(styles.catalogCategoryItem, categoryId === i && styles.active)}
@@ -70,9 +70,9 @@ export default function Catalog() {
             >
               <div className={styles.catalogCategoryItemIcon}>{category.icon}</div>
               <div className={styles.catalogCategoryItemText}>{category.name}</div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
 
         <div className={styles.catalogGrid}>
           {pizzas

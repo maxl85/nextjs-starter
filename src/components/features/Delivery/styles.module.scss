@@ -85,7 +85,7 @@
 
       &Title {
         @include h4-title;
-
+        display: block;
         margin-bottom: 6px;
         
         @include tablet-lg {
@@ -99,7 +99,7 @@
 
       &Text {
         @include desc-text;
-
+        display: block;
         color: #000;
       }
     }

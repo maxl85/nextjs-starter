@@ -30,6 +30,10 @@
       position: relative;
       margin: 0 20px;
       cursor: pointer;
+      
+      @include mobile-sm {
+        margin: 0 14px;
+      }
 
       &:hover {
         .catalogCategoryItemIcon {
@@ -115,6 +119,7 @@
 
     @include mobile-sm {
       grid-template-columns: 1fr;
+      gap: 12px 12px;
     }
   }
 }
