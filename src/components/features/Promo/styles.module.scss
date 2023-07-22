@@ -31,3 +31,39 @@
     @include p-text;
   }
 }
+
+.swiper {
+  display: none;
+  margin-bottom: 60px;
+  
+  @include mobile-sm {
+    display: block;
+  }
+}
+
+.wrapSlide {
+  aspect-ratio: 288 / 171;
+
+  &>img {
+    border-radius: 3.462px;
+  }
+}
+
+.wrapDesc {
+  position: absolute;
+  top: 100%;
+  margin-top: 13px;
+}
+
+.slide {
+  &Title {
+    @include h3-title;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  &Text {
+    @include p-text;
+    display: block;
+  }
+}

@@ -1,5 +1,4 @@
 import About from 'features/About';
-import Carousel from 'features/Carousel';
 import Cart from 'features/Cart';
 import Catalog from 'features/Catalog';
 import Cover from 'features/Cover';
@@ -12,7 +11,6 @@ export default function HomePage() {
     <>
       <Cover />
       <Promo />
-      <Carousel />
       <Catalog />
       <Delivery />
       <About />

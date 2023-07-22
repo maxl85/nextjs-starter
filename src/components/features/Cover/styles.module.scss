@@ -50,7 +50,6 @@
 
       max-width: 450px;
       margin-bottom: 32px;
-      text-align: left;
       
       @include desktop-xl {
         max-width: 410px;
@@ -88,6 +87,7 @@
 
       @include mobile-sm {
         width: 288px;
+        height: 52px;
       }
 
       &::after {
