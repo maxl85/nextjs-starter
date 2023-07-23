@@ -19,6 +19,10 @@
     position: relative;
     margin-top: 12px;
     aspect-ratio: 416 / 247;
+    
+    &>img {
+      border-radius: 5px;
+    }
   }
 
   &Title {

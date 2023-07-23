@@ -15,7 +15,7 @@ export default function Delivery() {
             <div>
               <span className={styles.deliveryGridBlockTitle}>Заказ</span>
               <span className={styles.deliveryGridBlockText}>
-                После оформления заказа мы свяжемся с вами для уточнения деталей.
+                После оформления заказа мы&nbsp;свяжемся с&nbsp;вами для уточнения деталей.
               </span>
             </div>
           </div>
@@ -27,7 +27,7 @@ export default function Delivery() {
             <div>
               <span className={styles.deliveryGridBlockTitle}>Доставка курьером</span>
               <span className={styles.deliveryGridBlockText}>
-                Мы доставим вашу пиццу горячей. Бесплатная доставка по городу.
+                Мы&nbsp;доставим вашу пиццу горячей. Бесплатная доставка по&nbsp;городу.
               </span>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function Delivery() {
             <div>
               <span className={styles.deliveryGridBlockTitle}>Оплата</span>
               <span className={styles.deliveryGridBlockText}>
-                Оплатить можно наличными или картой курьеру. И золотом тоже можно.
+                Оплатить можно наличными или картой курьеру. И&nbsp;золотом тоже можно.
               </span>
             </div>
           </div>

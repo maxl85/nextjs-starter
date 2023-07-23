@@ -2,7 +2,7 @@
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './slider.css';
+import './slider.scss';
 
 import Image from 'next/image';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -33,8 +33,8 @@ export default function Promo() {
                 alt={`event-${slide.id}`}
               />
             </div>
-            <p className={styles.promoTitle}>{slide.title}</p>
-            <p className={styles.promoText}>{slide.text}</p>
+            <div className={styles.promoTitle}>{slide.title}</div>
+            <div className={styles.promoText}>{slide.text}</div>
           </div>
         ))}
       </div>

@@ -9,7 +9,7 @@
   margin: 46px 0 80px 0;
   height: 60px;
   // margin-bottom: 46px;
-  background: #fff;
+  background: $white-color;
 
   @include tablet-lg {
     margin-top: 32px;
@@ -76,37 +76,37 @@
     }
   }
 
-  &Text {
+  &Wrap {
     display: flex;
     flex-direction: column;
 
     @include tablet-lg {
       display: none;
     }
+  }
 
-    &>h4 {
-      color: #000;
-      font-family: $font-alegreya;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 900;
-      letter-spacing: 1.333px;
-      line-height: normal;
-      text-transform: uppercase;
-      transition: $transition;
+  &Text {
+    color: $black-color;
+    font-family: $font-alegreya;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 1.333px;
+    line-height: normal;
+    text-transform: uppercase;
+    transition: $transition;
 
-      &:hover {
-        color: #e52d2d;
-      }
-
-      @include desktop-xl {
-        font-size: 20px;
-      }
+    &:hover {
+      color: $hover-color;
     }
 
-    &>span {
-      @include desc-text;
+    @include desktop-xl {
+      font-size: 20px;
     }
+  }
+
+  &Time {
+    @include desc-text;
   }
 }
 
@@ -143,15 +143,15 @@
       margin-right: 0;
     }
 
-    &>span {
+    &Badge {
       position: absolute;
       top: -10px;
       right: -10px;
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: #e52d2d;
-      color: #fff;
+      background: $hover-color;
+      color: $white-color;
       font-family: $font-roboto;
       font-size: 11px;
       font-style: normal;
@@ -170,7 +170,7 @@
     }
 
     &Title {
-      color: #000;
+      color: $black-color;
       font-family: $font-alegreya;
       font-size: 18px;
       font-style: normal;
@@ -185,11 +185,11 @@
       }
 
       &:hover {
-        color: #e52d2d;
+        color: $hover-color;
       }
     }
 
-    &>span {
+    &Count {
       @include desc-text;
       // width: 160px;
       height: 18px;
@@ -202,8 +202,8 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: #eff0f1;
-  color: #000;
+  background-color: $card-size-color;
+  color: $black-color;
   font-family: $font-alegreya;
   font-size: 18px;
   font-style: normal;
@@ -222,7 +222,7 @@
   }
 
   &:hover {
-    color: #e52d2d;
+    color: $hover-color;
   }
 
   &>span {
@@ -238,7 +238,7 @@
 .isScroll {
   &.header {
     padding: 9px 0 9px 0;
-    box-shadow: 0 2px 5px 0 rgb(165 169 176 / 30%);
+    box-shadow: $box-shadow;
   }
 
   .logo {

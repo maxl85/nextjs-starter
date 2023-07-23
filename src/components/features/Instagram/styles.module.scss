@@ -21,7 +21,7 @@
     @include h4-title;
     display: block;
     margin-bottom: 46px;
-    color: #848A9A;
+    color: $desc-color;
     text-align: center;
 
     @include tablet-lg {

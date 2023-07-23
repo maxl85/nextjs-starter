@@ -10,6 +10,12 @@ module.exports = {
         "lodash/import-scope": "off",
         "prettier/prettier": ["error", {
             "tabWidth": 2
-        }]
+        }],
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
     }
 }

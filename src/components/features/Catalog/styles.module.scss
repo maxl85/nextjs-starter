@@ -53,12 +53,12 @@
 
       &.active {
         .catalogCategoryItemText {
-          color: #E52D2D;
+          color: $hover-color;
         }
 
         .catalogCategoryItemIcon {
           svg path {
-            fill: #E52D2D;
+            fill: $hover-color;
           }
         }
       }
@@ -82,7 +82,7 @@
 
       &Text {
         position: relative;
-        color: #000;
+        color: $black-color;
         font-family: $font-alegreya;
         font-size: 18px;
         font-style: normal;

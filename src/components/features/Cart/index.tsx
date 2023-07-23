@@ -49,7 +49,7 @@ export default function Cart() {
       />
 
       <div className={styles.cartModal}>
-        <h3 className={styles.cartTitle}>Ваш заказ</h3>
+        <div className={styles.cartTitle}>Ваш заказ</div>
         <button
           className={styles.cartCloseBtn}
           type="button"
@@ -58,9 +58,9 @@ export default function Cart() {
           <IoClose />
         </button>
 
-        <ul className={styles.cartList}>
+        <div className={styles.cartList}>
           {items.map((item, i) => (
-            <li key={i} className={styles.cartItem}>
+            <div key={i} className={styles.cartItem}>
               <div className={styles.cartItemImage}>
                 <div className={styles.cartItemImageWrapIcon}>
                   {item.type.map((value, i) => (
@@ -86,8 +86,8 @@ export default function Cart() {
               </div>
 
               <div className={styles.cartItemPizza}>
-                <p className={styles.cartItemPizzaName}>{item.name}</p>
-                <p className={styles.cartItemPizzaSize}>{`${item.size} см`}</p>
+                <div className={styles.cartItemPizzaName}>{item.name}</div>
+                <div className={styles.cartItemPizzaSize}>{`${item.size} см`}</div>
               </div>
 
               <div className={styles.cartItemCount}>
@@ -109,7 +109,7 @@ export default function Cart() {
                 </button>
               </div>
 
-              <p className={styles.cartItemPrice}>{`${item.price * item.count} руб`}</p>
+              <div className={styles.cartItemPrice}>{`${item.price * item.count} руб`}</div>
 
               <button
                 className={styles.cartItemDelBtn}
@@ -118,9 +118,9 @@ export default function Cart() {
               >
                 <IoClose />
               </button>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
 
         <div className={styles.cartTotal}>
           <span className={styles.cartTotalText}>Сумма заказа :</span>
@@ -128,7 +128,7 @@ export default function Cart() {
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <p className={styles.formTitle}>Контакты</p>
+          <div className={styles.formTitle}>Контакты</div>
           <div className={styles.formTwoInputs}>
             <div
               className={clsx(
@@ -173,7 +173,7 @@ export default function Cart() {
           </div>
 
           <div className={styles.formPay}>
-            <p className={styles.formTitle}>Способ оплаты</p>
+            <div className={styles.formTitle}>Способ оплаты</div>
 
             <div className={styles.formPayWrapRadio}>
               <input className={styles.formPayRadio} type="radio" name="payment" id="paymentCash" />
@@ -199,9 +199,9 @@ export default function Cart() {
             Оформить заказ
           </button>
 
-          <p className={styles.formPolicy}>
+          <div className={styles.formPolicy}>
             Нажимая кнопку «Оформить заказ» вы соглашаетесь с политикой конфиденциальности
-          </p>
+          </div>
         </form>
       </div>
     </div>

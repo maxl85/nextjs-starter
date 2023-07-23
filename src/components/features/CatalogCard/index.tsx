@@ -22,7 +22,7 @@ export default function CatalogCard(props: Props) {
       id: props.id,
       name: props.name,
       image: props.image,
-      type: props.type.filter(value => value !== 'all'),
+      type: props.type,
       size: props.sizes[props.activeSize],
       activeSize: props.activeSize,
       price: props.price[props.activeSize],
@@ -35,10 +35,10 @@ export default function CatalogCard(props: Props) {
     <div className={styles.card}>
       <div className={styles.cardType}>
         {props.type.map(
-          (item, index) =>
+          (item, i) =>
             item !== 'all' && (
               <Image
-                key={index}
+                key={i}
                 className={styles.cardTypeIcon}
                 src={`/assets/icons/type/${item}.svg`}
                 width={0}

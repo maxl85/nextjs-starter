@@ -4,7 +4,7 @@
 
 .delivery {
   padding: 72px 0 80px;
-  background: #F8F6F3;
+  background: $delivery-color;
 
   @include tablet-lg {
     padding-top: 40px;
@@ -47,8 +47,8 @@
       align-items: center;
       padding: 32px 24px;
       border-radius: 5px;
-      background: #FFF;
-      box-shadow: 0 2px 5px 0 rgb(199 193 168 / 30%);
+      background: $white-color;
+      box-shadow: $delivery-shadow;
 
       @include tablet-lg {
         flex-direction: column;
@@ -100,7 +100,7 @@
       &Text {
         @include desc-text;
         display: block;
-        color: #000;
+        color: $black-color;
       }
     }
   }

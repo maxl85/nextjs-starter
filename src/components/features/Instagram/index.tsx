@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 export default function Instagram() {
   return (
     <section className="inst">
-      <h2 className={styles.instTitle}>Следите за нами в Instagram</h2>
+      <h2 className={styles.instTitle}>Следите за&nbsp;нами в&nbsp;Instagram</h2>
       <Link href="#" target="_blank" rel="noopener noreferrer" className={styles.instUser}>
         @pizzamenu
       </Link>

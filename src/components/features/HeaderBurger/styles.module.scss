@@ -16,7 +16,7 @@
 
     &.menuToggle {
       .burgerLine {
-        background: #fff;
+        background: $white-color;
 
         &:nth-of-type(1) {
           transform: rotate(45deg);
@@ -50,7 +50,7 @@
     width: 24px;
     height: 3px;
     border-radius: 1.5px;
-    background: #000;
+    background: $black-color;
     transition: $transition;
 
     &:nth-of-type(1) {

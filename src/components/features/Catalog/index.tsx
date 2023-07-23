@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-
 'use client';
 
 import { clsx } from 'clsx';
@@ -20,26 +18,31 @@ import styles from './styles.module.scss';
 
 const categories = [
   {
+    id: 0,
     name: 'Все',
     icon: <AllIcon key="all" />,
     type: 'all',
   },
   {
+    id: 1,
     name: 'Острые',
     icon: <HotIcon key="hot" />,
     type: 'hot',
   },
   {
+    id: 2,
     name: 'Мясные',
     icon: <MeatIcon key="meat" />,
     type: 'meat',
   },
   {
+    id: 3,
     name: 'Сырные',
     icon: <CheeseIcon key="cheese" />,
     type: 'cheese',
   },
   {
+    id: 4,
     name: 'Веганские',
     icon: <VeganIcon key="vegetarian" />,
     type: 'vegetarian',
@@ -61,12 +64,15 @@ export default function Catalog() {
         <h2 className={styles.catalogTitle}>Выберите пиццу</h2>
 
         <div className={styles.catalogCategory}>
-          {categories.map((category, i) => (
+          {categories.map(category => (
             <div
-              key={i}
+              key={category.id}
               role="presentation"
-              className={clsx(styles.catalogCategoryItem, categoryId === i && styles.active)}
-              onClick={() => dispatch(setCategoryId(i))}
+              className={clsx(
+                styles.catalogCategoryItem,
+                categoryId === category.id && styles.active
+              )}
+              onClick={() => dispatch(setCategoryId(category.id))}
             >
               <div className={styles.catalogCategoryItemIcon}>{category.icon}</div>
               <div className={styles.catalogCategoryItemText}>{category.name}</div>

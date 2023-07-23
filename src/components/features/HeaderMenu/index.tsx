@@ -26,7 +26,7 @@ export default function HeaderMenu({ menuToggle }: Props) {
           <Link href="#">меню</Link>
         </div>
         <div className={styles.navListItem}>
-          <Link href="#">о нас</Link>
+          <Link href="#">о&nbsp;нас</Link>
         </div>
         <div className={styles.navListItem}>
           <Link href="#">контакты</Link>
@@ -34,11 +34,11 @@ export default function HeaderMenu({ menuToggle }: Props) {
       </div>
 
       <div className={styles.navInfo}>
-        <span className={styles.navInfoTitle}>заказать по телефону</span>
-        <a href="tel:+79184326587">
-          <h4 className={styles.navInfoPhone}>+7 (918) 432-65-87</h4>
+        <div className={styles.navInfoTitle}>заказать по&nbsp;телефону</div>
+        <a className={styles.navInfoPhone} href="tel:+79184326587">
+          +7 (918) 432-65-87
         </a>
-        <span className={styles.navInfoTime}>Ежедневно с 9:00 до 23:00</span>
+        <div className={styles.navInfoTime}>Ежедневно с&nbsp;9:00 до&nbsp;23:00</div>
       </div>
 
       <Link href="#" className={styles.navLanguage}>

@@ -2,7 +2,7 @@
 
 .nav {
   overflow: auto;
-  
+
   @include tablet-lg {
     position: fixed;
     z-index: 9;
@@ -13,7 +13,7 @@
     height: 100%;
     flex-direction: column;
     padding: 120px 60px 40px;
-    background: #313945;
+    background: $menu-color;
     transition: $transition;
 
     &.menuToggle {
@@ -26,7 +26,7 @@
     top: 12px;
     left: 16px;
     display: none;
-    
+
     @include mobile-sm {
       display: block;
     }
@@ -41,13 +41,13 @@
 
     &Item {
       margin: 0 30px;
-      
+
       @include desktop-xl {
         margin: 0 10px;
       }
 
       @include tablet-lg {
-        border-bottom: 1px solid #1d2228;
+        border-bottom: 1px solid $menu-border-color;
 
         &:last-child {
           border: none;
@@ -55,7 +55,7 @@
       }
 
       &>a {
-        color: #000;
+        color: $black-color;
         font-family: $font-alegreya;
         font-size: 18px;
         font-style: normal;
@@ -66,7 +66,7 @@
         transition: $transition;
 
         &:hover {
-          color: #e52d2d;
+          color: $hover-color;
         }
 
         @include desktop-xl {
@@ -76,7 +76,7 @@
         @include tablet-lg {
           display: block;
           padding: 24px 0;
-          color: #fff;
+          color: $white-color;
           font-size: 18px;
           font-weight: 700;
           text-align: center;
@@ -90,13 +90,13 @@
     flex-direction: column;
     align-items: center;
     margin-top: auto;
-    
+
     @include tablet-lg {
       display: flex;
     }
 
     &Title {
-      color: #A8B0BC;
+      color: $menu-text-color;
       font-family: $font-roboto;
       font-size: 12px;
       font-style: normal;
@@ -108,12 +108,19 @@
     }
 
     &Phone {
-      color: #FFF;
+      color: $white-color;
+      font-family: $font-alegreya;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+      letter-spacing: 1.333px;
+      text-transform: uppercase;
     }
 
     &Time {
-      color: #A8B0BC;
-      font-family: Roboto;
+      color: $menu-text-color;
+      font-family: $font-roboto;
       font-size: 12px;
       font-style: normal;
       font-weight: 400;
@@ -124,7 +131,7 @@
   &Language {
     display: none;
     margin-top: 40px;
-    color: #FFF;
+    color: $white-color;
     font-family: $font-alegreya;
     font-size: 12px;
     font-style: normal;

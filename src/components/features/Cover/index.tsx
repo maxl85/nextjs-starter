@@ -10,10 +10,10 @@ export default function Cover() {
     <section className="container">
       <div className={styles.cover}>
         <div className={styles.coverLeft}>
-          <h1 className={styles.coverLeftTitle}>Пицца на заказ</h1>
-          <p className={styles.coverLeftText}>
-            Бесплатная и быстрая доставка за час в любое удобное для вас время
-          </p>
+          <h1 className={styles.coverLeftTitle}>Пицца на&nbsp;заказ</h1>
+          <div className={styles.coverLeftText}>
+            Бесплатная и&nbsp;быстрая доставка за&nbsp;час в&nbsp;любое удобное для вас время
+          </div>
           <button className={styles.coverLeftBtn} type="button">
             Выбрать пиццу
           </button>

@@ -46,9 +46,9 @@ export default function Header() {
           <div className={styles.phoneWrapImage}>
             <Image fill src="/assets/icons/telephone.svg" alt="logo" />
           </div>
-          <div className={styles.phoneText}>
-            <h4>+7 (918) 432-65-87</h4>
-            <span>Ежедневно с 9:00 до 23:00</span>
+          <div className={styles.phoneWrap}>
+            <div className={styles.phoneText}>+7 (918) 432-65-87</div>
+            <div className={styles.phoneTime}>Ежедневно с 9:00 до 23:00</div>
           </div>
         </a>
 
@@ -61,11 +61,11 @@ export default function Header() {
             <div className={styles.cartWrapImage}>
               <Image fill src="/assets/icons/cart.svg" alt="logo" />
             </div>
-            <span>{countPizzaz()}</span>
+            <div className={styles.cartIconBadge}>{countPizzaz()}</div>
           </div>
           <div className={styles.cartText}>
-            <h4 className={styles.cartTextTitle}>ваш заказ</h4>
-            <span>
+            <div className={styles.cartTextTitle}>ваш заказ</div>
+            <div className={styles.cartTextCount}>
               {cartItem.length > 0 && countPizzaz() < 2 && cartItem[0].name}
               {cartItem.length >= 1 &&
                 countPizzaz() === 2 &&
@@ -77,7 +77,7 @@ export default function Header() {
               {cartItem.length >= 1 &&
                 countPizzaz() >= 6 &&
                 `${cartItem[0].name} и еще ${countPizzaz() - 1} пицц`}
-            </span>
+            </div>
           </div>
         </div>
 

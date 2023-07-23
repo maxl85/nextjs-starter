@@ -4,7 +4,7 @@
 .footer {
   position: relative;
   padding: 32px 0 36px;
-  background: #000;
+  background: $black-color;
   margin-top: auto;
 
   @include mobile-sm {
@@ -30,7 +30,7 @@
   &:hover {
     svg path {
       transition: $transition;
-      fill: #E52D2D;
+      fill: $hover-color;
     }
   }
 
@@ -67,11 +67,11 @@
   &>a {
     margin-bottom: 6px;
     @include h4-title;
-    color: #fff;
+    color: $white-color;
     transition: $transition;
 
     &:hover {
-      color: #E52D2D;
+      color: $hover-color;
     }
 
     @include tablet-lg {
@@ -86,7 +86,7 @@
 
   &>span {
     @include desc-text;
-    color: #fff;
+    color: $white-color;
 
     @include mobile-sm {
       text-align: center;
@@ -96,7 +96,7 @@
 
 .confidencial {
   margin-left: auto;
-  color: #fff;
+  color: $white-color;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -104,7 +104,7 @@
   transition: $transition;
 
   &:hover {
-    color: #E52D2D;
+    color: $hover-color;
   }
 
   @include mobile-sm {
