@@ -14,6 +14,7 @@
   @include tablet-lg {
     margin-top: 32px;
     margin-bottom: 0px;
+    height: 64px;
   }
 
   @include mobile-sm {
@@ -239,11 +240,20 @@
   &.header {
     padding: 9px 0 9px 0;
     box-shadow: $box-shadow;
+    
+    @include tablet-lg {
+      padding: 12px 0 12px 0;
+    }
   }
 
   .logo {
     width: 68px;
     height: 31px;
+    
+    @include tablet-lg {
+      width: 85px;
+      height: 39px;
+    }
   }
 
   nav {
@@ -276,8 +286,10 @@
     margin-left: 62px;
 
     @include tablet-lg {
-      margin-left: 32px;
+      margin-left: 24px;
     }
+    
+    
 
     &TextTitle {
       margin-right: 170px;

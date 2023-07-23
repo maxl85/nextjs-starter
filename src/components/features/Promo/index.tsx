@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { PaginationOptions } from 'swiper/types';
 
 import { slides } from '../../../data/promo';
-import styles from './styles.module.scss';
+import styles from './Promo.module.scss';
 
 export default function Promo() {
   const pagination: PaginationOptions = {

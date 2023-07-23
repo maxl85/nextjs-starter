@@ -3,7 +3,7 @@ import Image from 'next/image';
 import imgBg from '../../../../public/assets/images/img-bg.png';
 import imgLeaves from '../../../../public/assets/images/img-leaves.png';
 import imgPizza from '../../../../public/assets/images/img-pizza.png';
-import styles from './styles.module.scss';
+import styles from './Cover.module.scss';
 
 export default function Cover() {
   return (

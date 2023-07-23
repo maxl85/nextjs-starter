@@ -4,7 +4,7 @@ import Image from 'next/image';
 import imgAbout01 from '../../../../public/assets/images/about01.png';
 import imgAbout02 from '../../../../public/assets/images/about02.png';
 import imgAbout03 from '../../../../public/assets/images/about03.png';
-import styles from './styles.module.scss';
+import styles from './About.module.scss';
 
 export default function About() {
   return (

@@ -8,7 +8,7 @@ import { addItem } from '@/redux/cart/cartSlice';
 import { CartItem } from '@/redux/cart/types';
 
 import { Pizza } from '../../../redux/pizzas/types';
-import styles from './styles.module.scss';
+import styles from './CatalogCard.module.scss';
 
 interface Props extends Pizza {
   onClickSize: (props: { pizzaId: number; activeSize: number }) => void;

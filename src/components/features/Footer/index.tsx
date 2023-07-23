@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import Logo from '../../../../public/assets/icons/logo-invert.svg';
-import styles from './styles.module.scss';
+import styles from './Footer.module.scss';
 
 export default function Footer() {
   return (

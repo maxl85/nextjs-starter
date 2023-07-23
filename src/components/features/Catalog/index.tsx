@@ -14,7 +14,7 @@ import HotIcon from '../../../../public/assets/icons/type/hot.svg';
 import MeatIcon from '../../../../public/assets/icons/type/meat.svg';
 import VeganIcon from '../../../../public/assets/icons/type/vegetarian.svg';
 import CatalogCard from '../CatalogCard';
-import styles from './styles.module.scss';
+import styles from './Catalog.module.scss';
 
 const categories = [
   {

@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './HeaderBurger.module.scss';
 
 interface Props {
   onClick?: React.MouseEventHandler;

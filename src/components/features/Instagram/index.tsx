@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { imgLink } from '../../../data/instagram';
-import styles from './styles.module.scss';
+import styles from './Instagram.module.scss';
 
 export default function Instagram() {
   return (

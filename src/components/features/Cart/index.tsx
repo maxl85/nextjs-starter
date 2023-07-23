@@ -15,7 +15,7 @@ import { decCount, incCount, removeItem, showCart } from '@/redux/cart/cartSlice
 import { selectCart, selectCartVisible } from '@/redux/cart/selectors';
 
 import SizeIcon from '../../../../public/assets/icons/size.svg';
-import styles from './styles.module.scss';
+import styles from './Cart.module.scss';
 
 interface CartForm {
   name: string;
