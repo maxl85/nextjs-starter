@@ -63,11 +63,16 @@ const nextConfig = {
         instrumentationHook: true,
     },
 
-    // images: {
-    //     disableStaticImages: true,
-    //     dangerouslyAllowSVG: true,
-    //     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // },
+    images: {
+        remotePatterns: [
+          {
+            protocol: 'http',
+            hostname: '127.0.0.1',
+            port: '7777',
+            pathname: '/api/**',
+          },
+        ],
+      },
 
     rewrites: async () => [
         {
