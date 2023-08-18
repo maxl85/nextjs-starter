@@ -2,8 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CategoryDto } from '../models/CategoryDto';
 import type { CategoryEntity } from '../models/CategoryEntity';
+import type { CreateCategoryDto } from '../models/CreateCategoryDto';
+import type { UpdateCategoryDto } from '../models/UpdateCategoryDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -16,15 +17,15 @@ export class CategoryService {
      * @throws ApiError
      */
     public static create({
-requestBody,
+formData,
 }: {
-requestBody: CategoryDto,
+formData: CreateCategoryDto,
 }): CancelablePromise<CategoryEntity> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/category',
-            body: requestBody,
-            mediaType: 'application/json',
+            formData: formData,
+            mediaType: 'multipart/form-data',
         });
     }
 
@@ -36,6 +37,24 @@ requestBody: CategoryDto,
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/category',
+        });
+    }
+
+    /**
+     * @returns any 
+     * @throws ApiError
+     */
+    public static download({
+path,
+}: {
+path: string,
+}): CancelablePromise<Record<string, any>> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/api/category/image/{path}',
+            path: {
+                'path': path,
+            },
         });
     }
 
@@ -63,10 +82,10 @@ id: string,
      */
     public static update({
 id,
-requestBody,
+formData,
 }: {
 id: string,
-requestBody: CategoryDto,
+formData: UpdateCategoryDto,
 }): CancelablePromise<CategoryEntity> {
         return __request(OpenAPI, {
             method: 'PATCH',
@@ -74,8 +93,8 @@ requestBody: CategoryDto,
             path: {
                 'id': id,
             },
-            body: requestBody,
-            mediaType: 'application/json',
+            formData: formData,
+            mediaType: 'multipart/form-data',
         });
     }
 

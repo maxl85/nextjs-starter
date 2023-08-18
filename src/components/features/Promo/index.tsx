@@ -7,24 +7,24 @@ import 'swiper/css/pagination';
 import './slider.scss';
 
 import Image from 'next/image';
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { PaginationOptions } from 'swiper/types';
 
-// import { Autoplay, Pagination } from 'swiper/modules';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { PaginationOptions } from 'swiper/types';
-import { usePromo } from '@/hooks/queries/promo';
+import { usePromoQuery } from '@/hooks/queries/promo';
 
 // import { slides } from '../../../data/promo';
 import styles from './Promo.module.scss';
 
 export default function Promo() {
-  const { data } = usePromo();
+  const { data } = usePromoQuery();
 
-  // const pagination: PaginationOptions = {
-  //   clickable: true,
-  //   renderBullet(index: number, className) {
-  //     return `<span class="${className}"></span>`;
-  //   },
-  // };
+  const pagination: PaginationOptions = {
+    clickable: true,
+    renderBullet(index: number, className) {
+      return `<span class="${className}"></span>`;
+    },
+  };
 
   return (
     <section className="container">
@@ -45,12 +45,16 @@ export default function Promo() {
         ))}
       </div>
 
-      {/* <div className={styles.swiper}>
+      <div className={styles.swiper}>
         <Swiper pagination={pagination} modules={[Pagination, Autoplay]} autoplay={{ delay: 3000 }}>
-          {slides.map(slide => (
+          {data?.map(slide => (
             <SwiperSlide key={slide.id}>
               <div className={styles.wrapSlide}>
-                <Image fill src={slide.url} alt="slide" />
+                <Image
+                  fill
+                  src={`${process.env.NEXT_PUBLIC_BACK_URL}/promo/image/${slide.image}`}
+                  alt="slide"
+                />
                 <div className={styles.wrapDesc}>
                   <span className={styles.slideTitle}>{slide.title}</span>
                   <span className={styles.slideText}>{slide.text}</span>
@@ -59,7 +63,7 @@ export default function Promo() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div> */}
+      </div>
     </section>
   );
 }

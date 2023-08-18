@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type CategoryDto = {
+export type CreateCategoryDto = {
+    image: Blob;
     name: string;
 };

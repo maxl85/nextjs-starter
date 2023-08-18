@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type CategoryEntity = {
-    id: number;
-    name: string;
-    image: string;
+export type UpdateCategoryDto = {
+    image?: Blob;
+    name?: string;
 };

@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+
 'use client';
 
 import { clsx } from 'clsx';
+import Image from 'next/image';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setCategoryId } from '@/redux/filter/filterSlice';
-import { selectCategoryId } from '@/redux/filter/selectors';
 import { setActiveSize } from '@/redux/pizzas/pizzasSlice';
 import { selectPizzaz } from '@/redux/pizzas/selectors';
+import { useCategoryQuery } from '~/src/hooks/queries/category';
 
 import AllIcon from '../../../../public/assets/icons/type/all.svg';
 import CheeseIcon from '../../../../public/assets/icons/type/cheese.svg';
@@ -50,9 +53,12 @@ const categories = [
 ];
 
 export default function Catalog() {
-  const categoryId = useSelector(selectCategoryId);
   const pizzas = useSelector(selectPizzaz);
   const dispatch = useDispatch();
+
+  const [categoryId, setCategoryId] = useState(0);
+
+  const { data } = useCategoryQuery();
 
   const handleClickSize = (props: { pizzaId: number; activeSize: number }) => {
     dispatch(setActiveSize(props));
@@ -64,7 +70,18 @@ export default function Catalog() {
         <h2 className={styles.catalogTitle}>Выберите пиццу</h2>
 
         <div className={styles.catalogCategory}>
-          {categories.map(category => (
+          <div
+            role="presentation"
+            className={clsx(styles.catalogCategoryItem, categoryId === 0 && styles.active)}
+            onClick={() => setCategoryId(0)}
+          >
+            <div className={styles.catalogCategoryItemIcon}>
+              <Image src="/assets/icons/type/all.svg" width={24} height={24} alt="svg" />
+            </div>
+            <div className={styles.catalogCategoryItemText}>все</div>
+          </div>
+
+          {data?.map(category => (
             <div
               key={category.id}
               role="presentation"
@@ -72,9 +89,16 @@ export default function Catalog() {
                 styles.catalogCategoryItem,
                 categoryId === category.id && styles.active
               )}
-              onClick={() => dispatch(setCategoryId(category.id))}
+              onClick={() => setCategoryId(category.id)}
             >
-              <div className={styles.catalogCategoryItemIcon}>{category.icon}</div>
+              <div className={styles.catalogCategoryItemIcon}>
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BACK_URL}/category/image/${category.image}`}
+                  width={24}
+                  height={24}
+                  alt="svg"
+                />
+              </div>
               <div className={styles.catalogCategoryItemText}>{category.name}</div>
             </div>
           ))}

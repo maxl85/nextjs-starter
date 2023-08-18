@@ -60,6 +60,7 @@
           svg path {
             fill: $hover-color;
           }
+          filter: invert(63%) sepia(98%) saturate(6007%) hue-rotate(341deg) brightness(90%) contrast(101%);
         }
       }
 
