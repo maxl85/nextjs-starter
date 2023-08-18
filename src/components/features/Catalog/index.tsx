@@ -5,64 +5,17 @@
 import { clsx } from 'clsx';
 import Image from 'next/image';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { setActiveSize } from '@/redux/pizzas/pizzasSlice';
-import { selectPizzaz } from '@/redux/pizzas/selectors';
 import { useCategoryQuery } from '~/src/hooks/queries/category';
+import { useProductQuery } from '~/src/hooks/queries/product';
 
-import AllIcon from '../../../../public/assets/icons/type/all.svg';
-import CheeseIcon from '../../../../public/assets/icons/type/cheese.svg';
-import HotIcon from '../../../../public/assets/icons/type/hot.svg';
-import MeatIcon from '../../../../public/assets/icons/type/meat.svg';
-import VeganIcon from '../../../../public/assets/icons/type/vegetarian.svg';
 import CatalogCard from '../CatalogCard';
 import styles from './Catalog.module.scss';
 
-const categories = [
-  {
-    id: 0,
-    name: 'Все',
-    icon: <AllIcon key="all" />,
-    type: 'all',
-  },
-  {
-    id: 1,
-    name: 'Острые',
-    icon: <HotIcon key="hot" />,
-    type: 'hot',
-  },
-  {
-    id: 2,
-    name: 'Мясные',
-    icon: <MeatIcon key="meat" />,
-    type: 'meat',
-  },
-  {
-    id: 3,
-    name: 'Сырные',
-    icon: <CheeseIcon key="cheese" />,
-    type: 'cheese',
-  },
-  {
-    id: 4,
-    name: 'Веганские',
-    icon: <VeganIcon key="vegetarian" />,
-    type: 'vegetarian',
-  },
-];
-
 export default function Catalog() {
-  const pizzas = useSelector(selectPizzaz);
-  const dispatch = useDispatch();
-
   const [categoryId, setCategoryId] = useState(0);
-
-  const { data } = useCategoryQuery();
-
-  const handleClickSize = (props: { pizzaId: number; activeSize: number }) => {
-    dispatch(setActiveSize(props));
-  };
+  const { data: categoryData } = useCategoryQuery();
+  const { data: productData } = useProductQuery({ variables: { categoryId } });
 
   return (
     <div className="container">
@@ -81,7 +34,7 @@ export default function Catalog() {
             <div className={styles.catalogCategoryItemText}>все</div>
           </div>
 
-          {data?.map(category => (
+          {categoryData?.map(category => (
             <div
               key={category.id}
               role="presentation"
@@ -105,12 +58,9 @@ export default function Catalog() {
         </div>
 
         <div className={styles.catalogGrid}>
-          {pizzas
-            .filter(pizza => pizza.type.indexOf(categories[categoryId].type) !== -1)
-            .map(item => (
-              // eslint-disable-next-line react/jsx-props-no-spreading
-              <CatalogCard onClickSize={handleClickSize} {...item} key={item.id} />
-            ))}
+          {productData?.map(pizza => (
+            <CatalogCard {...pizza} key={pizza.id} />
+          ))}
         </div>
       </section>
     </div>
