@@ -17,3 +17,4 @@ export const apiClient = axios.create({
     // baseURL: env.NEXT_PUBLIC_FRONT_PROXY,
     baseURL: 'http://158.160.14.162:7777',
 });
+
