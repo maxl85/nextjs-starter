@@ -1,8 +1,8 @@
-/* eslint-disable no-secrets/no-secrets */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable no-secrets/no-secrets */
 
 'use client';
 
@@ -14,6 +14,7 @@ import { BiSolidMinusCircle, BiSolidPlusCircle } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
 
 import { useAddToCart, useCartQuery, useDeleteCart, useReduceCart } from '@/hooks/queries/cart';
+import { useCreateOrder } from '@/hooks/queries/order';
 import { useStore } from '@/hooks/useStore';
 
 import SizeIcon from '../../../../public/assets/icons/size.svg';
@@ -31,6 +32,7 @@ function Cart() {
     formState: { errors },
     getValues,
     handleSubmit,
+    reset,
   } = useForm<CartForm>({
     mode: 'onBlur',
   });
@@ -40,9 +42,21 @@ function Cart() {
   const addToCart = useAddToCart();
   const reduceCart = useReduceCart();
   const deleteCart = useDeleteCart();
+  const createOrder = useCreateOrder();
 
-  // eslint-disable-next-line no-console
-  const onSubmit: SubmitHandler<CartForm> = data => console.log(data);
+  const onSubmit: SubmitHandler<CartForm> = data => {
+    createOrder.mutate({
+      requestBody: {
+        userName: data.name,
+        phone: data.phone,
+        address: data.address,
+        payment: 0,
+      },
+    });
+    reset();
+    // eslint-disable-next-line no-alert
+    alert('Заказ оформлен');
+  };
 
   return (
     <div className={clsx(styles.cart, store.cartVisible && styles.visible)}>

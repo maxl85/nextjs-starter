@@ -59,6 +59,7 @@ export default function Catalog() {
 
         <div className={styles.catalogGrid}>
           {productData?.map(pizza => (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <CatalogCard {...pizza} key={pizza.id} />
           ))}
         </div>

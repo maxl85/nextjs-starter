@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 import { useQueryClient } from '@tanstack/react-query';
 import { createMutation, createQuery } from 'react-query-kit';
 
