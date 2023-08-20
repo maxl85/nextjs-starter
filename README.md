@@ -4,11 +4,6 @@
 
 На базе шаблона [NextJS Starter](https://github.com/webpractik/nextjs-starter/)
 
----
-
-## [Demo on Vercel](https://nextjs-starter-maxl85.vercel.app/)
-
----
 
 ## Реализовано:
 - Адаптивная верстка до 320px
