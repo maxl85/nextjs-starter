@@ -3,7 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { CartEntity } from './CartEntity';
 import type { CategoryEntity } from './CategoryEntity';
+import type { OrderItemEntity } from './OrderItemEntity';
 
 export type ProductEntity = {
     id: number;
@@ -13,4 +15,6 @@ export type ProductEntity = {
     sizes: Array<number>;
     prices: Array<number>;
     category: CategoryEntity;
+    cart: Array<CartEntity>;
+    orderItem: Array<OrderItemEntity>;
 };

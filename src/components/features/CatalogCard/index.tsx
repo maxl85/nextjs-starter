@@ -5,44 +5,14 @@ import { clsx } from 'clsx';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { ProductEntity } from '~/src/api/models/ProductEntity';
+import { ProductEntity } from '@/api/models/ProductEntity';
+import { useAddToCart } from '@/hooks/queries/cart';
 
 import styles from './CatalogCard.module.scss';
 
-// interface Pizza {
-//   id: number;
-//   name: string;
-//   description: string;
-//   price: number[];
-//   // type: string[];
-//   sizes: number[];
-//   activeSize: number;
-//   image: string;
-// }
-
-// interface Props extends Pizza {
-//   onClickSize: (props: { pizzaId: number; activeSize: number }) => void;
-// }
-
-// export default function CatalogCard(props: Props) {
 export default function CatalogCard(props: ProductEntity) {
   const [activeSize, setActiveSize] = useState(0);
-
-  // const dispatch = useDispatch();
-
-  // const handleClickBuy = () => {
-  //   const item: CartItem = {
-  //     id: props.id,
-  //     name: props.name,
-  //     image: props.image,
-  //     type: props.type,
-  //     size: props.sizes[props.activeSize],
-  //     activeSize: props.activeSize,
-  //     price: props.price[props.activeSize],
-  //     count: 1,
-  //   };
-  //   dispatch(addItem(item));
-  // };
+  const mutation = useAddToCart();
 
   return (
     <div className={styles.card}>
@@ -100,12 +70,26 @@ export default function CatalogCard(props: ProductEntity) {
         </div>
         <span className={styles.cardDescPrice}>{`${props.prices[activeSize]} руб.`}</span>
 
-        {/* <button className={styles.cardDescBuyBtn} type="button" onClick={handleClickBuy}> */}
-        <button className={styles.cardDescBuyBtn} type="button">
+        <button
+          className={styles.cardDescBuyBtn}
+          type="button"
+          onClick={() => {
+            mutation.mutate({
+              requestBody: { productId: props.id, productSizeId: activeSize, quantity: 1 },
+            });
+          }}
+        >
           Заказать
         </button>
-        {/* <button className={styles.cardDescBuyBtnMobile} type="button" onClick={handleClickBuy}>{`${ */}
-        <button className={styles.cardDescBuyBtnMobile} type="button">
+        <button
+          className={styles.cardDescBuyBtnMobile}
+          type="button"
+          onClick={() => {
+            mutation.mutate({
+              requestBody: { productId: props.id, productSizeId: activeSize, quantity: 1 },
+            });
+          }}
+        >
           {`${props.prices[activeSize]} руб.`}
         </button>
       </div>

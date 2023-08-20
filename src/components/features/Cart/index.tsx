@@ -5,16 +5,12 @@
 'use client';
 
 import { clsx } from 'clsx';
-import Image from 'next/image';
+import { observer } from 'mobx-react-lite';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { BiSolidMinusCircle, BiSolidPlusCircle } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { decCount, incCount, removeItem, showCart } from '@/redux/cart/cartSlice';
-import { selectCart, selectCartVisible } from '@/redux/cart/selectors';
+import { useStore } from '@/hooks/useStore';
 
-import SizeIcon from '../../../../public/assets/icons/size.svg';
 import styles from './Cart.module.scss';
 
 interface CartForm {
@@ -23,7 +19,7 @@ interface CartForm {
   address: string;
 }
 
-export default function Cart() {
+function Cart() {
   const {
     register,
     formState: { errors },
@@ -33,32 +29,27 @@ export default function Cart() {
     mode: 'onBlur',
   });
 
-  const cartVisible = useSelector(selectCartVisible);
-  const { items, totalPrice } = useSelector(selectCart);
-  const dispatch = useDispatch();
+  // const cartVisible = false;
+  // const cartVisible = useSelector(selectCartVisible);
+  // const { items, totalPrice } = useSelector(selectCart);
+  // const dispatch = useDispatch();
+
+  const store = useStore();
 
   // eslint-disable-next-line no-console
   const onSubmit: SubmitHandler<CartForm> = data => console.log(data);
 
   return (
-    <div className={clsx(styles.cart, cartVisible && styles.visible)}>
-      <div
-        className={styles.cartBg}
-        role="presentation"
-        onClick={() => dispatch(showCart(false))}
-      />
+    <div className={clsx(styles.cart, store.cartVisible && styles.visible)}>
+      <div className={styles.cartBg} role="presentation" onClick={() => store.showCart(false)} />
 
       <div className={styles.cartModal}>
         <div className={styles.cartTitle}>Ваш заказ</div>
-        <button
-          className={styles.cartCloseBtn}
-          type="button"
-          onClick={() => dispatch(showCart(false))}
-        >
+        <button className={styles.cartCloseBtn} type="button" onClick={() => store.showCart(false)}>
           <IoClose />
         </button>
 
-        <div className={styles.cartList}>
+        {/* <div className={styles.cartList}>
           {items.map((item, i) => (
             <div key={i} className={styles.cartItem}>
               <div className={styles.cartItemImage}>
@@ -120,12 +111,12 @@ export default function Cart() {
               </button>
             </div>
           ))}
-        </div>
+        </div> */}
 
-        <div className={styles.cartTotal}>
+        {/* <div className={styles.cartTotal}>
           <span className={styles.cartTotalText}>Сумма заказа :</span>
           <span className={styles.cartTotalSum}>{`${totalPrice} руб`}</span>
-        </div>
+        </div> */}
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.formTitle}>Контакты</div>
@@ -207,3 +198,5 @@ export default function Cart() {
     </div>
   );
 }
+
+export default observer(Cart);

@@ -3,31 +3,29 @@
 'use client';
 
 import { clsx } from 'clsx';
+import { observer } from 'mobx-react-lite';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { showCart } from '@/redux/cart/cartSlice';
-import { selectCart, selectCartVisible } from '@/redux/cart/selectors';
+import { useCartQuery } from '@/hooks/queries/cart';
+import { useStore } from '@/hooks/useStore';
 
 import HeaderBurger from '../HeaderBurger';
 import HeaderMenu from '../HeaderMenu';
 import styles from './Header.module.scss';
 
-export default function Header() {
+function Header() {
   const { ref, inView } = useInView({ threshold: 1 });
   const [menuToggle, setMenuToggle] = useState(false);
-
-  const cartVisible = useSelector(selectCartVisible);
-  const { items: cartItem } = useSelector(selectCart);
-  const dispatch = useDispatch();
+  const { data: cartItems } = useCartQuery();
+  const store = useStore();
 
   function countPizzaz() {
     let total = 0;
-    cartItem.forEach(item => {
-      total += item.count;
+    cartItems?.forEach(item => {
+      total += item.quantity;
     });
     return total;
   }
@@ -35,7 +33,6 @@ export default function Header() {
   return (
     <header ref={ref} className={clsx(styles.header, !inView && styles.isScroll)}>
       <div className={`container ${styles.wrapper}`}>
-        {/* <Link href="/" className={clsx(styles.logo, menuToggle && styles.logoHide)}> */}
         <Link href="/" className={clsx(styles.logo)}>
           <Image fill src="/assets/icons/logo.svg" alt="logo" />
         </Link>
@@ -55,7 +52,7 @@ export default function Header() {
         <div
           className={styles.cart}
           role="presentation"
-          onClick={() => dispatch(showCart(!cartVisible && countPizzaz() !== 0))}
+          onClick={() => store.showCart(!store.cartVisible && countPizzaz() !== 0)}
         >
           <div className={styles.cartIcon}>
             <div className={styles.cartWrapImage}>
@@ -66,17 +63,20 @@ export default function Header() {
           <div className={styles.cartText}>
             <div className={styles.cartTextTitle}>ваш заказ</div>
             <div className={styles.cartTextCount}>
-              {cartItem.length > 0 && countPizzaz() < 2 && cartItem[0].name}
-              {cartItem.length >= 1 &&
+              {cartItems && cartItems.length > 0 && countPizzaz() < 2 && cartItems[0].product.name}
+              {cartItems &&
+                cartItems.length >= 1 &&
                 countPizzaz() === 2 &&
-                `${cartItem[0].name} и еще ${countPizzaz() - 1} пицца`}
-              {cartItem.length >= 1 &&
+                `${cartItems[0].product.name} и еще ${countPizzaz() - 1} пицца`}
+              {cartItems &&
+                cartItems.length >= 1 &&
                 countPizzaz() > 2 &&
                 countPizzaz() < 6 &&
-                `${cartItem[0].name} и еще ${countPizzaz() - 1} пиццы`}
-              {cartItem.length >= 1 &&
+                `${cartItems[0].product.name} и еще ${countPizzaz() - 1} пиццы`}
+              {cartItems &&
+                cartItems.length >= 1 &&
                 countPizzaz() >= 6 &&
-                `${cartItem[0].name} и еще ${countPizzaz() - 1} пицц`}
+                `${cartItems[0].product.name} и еще ${countPizzaz() - 1} пицц`}
             </div>
           </div>
         </div>
@@ -90,3 +90,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default observer(Header);

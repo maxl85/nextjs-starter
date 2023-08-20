@@ -7,8 +7,8 @@ import { Alegreya, Roboto } from 'next/font/google';
 import { ReactNode } from 'react';
 
 import ReactQueryProvider from '@/providers/react-query';
-// import StoreProvider from '@/providers/store';
-import { Providers } from '@/redux/provider';
+import StoreProvider from '@/providers/store';
+// import { Providers } from '@/redux/provider';
 
 const alegreya = Alegreya({
   subsets: ['cyrillic'],
@@ -33,19 +33,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ru" className={`${alegreya.variable} ${roboto.variable}`}>
       <body>
         <div className="wrapper">
-          {/* <Providers>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </Providers> */}
           <ReactQueryProvider>
-            {/* <StoreProvider> */}
-            <Providers>
+            <StoreProvider>
               <Header />
               <main>{children}</main>
               <Footer />
-            </Providers>
-            {/* </StoreProvider> */}
+            </StoreProvider>
           </ReactQueryProvider>
         </div>
       </body>
