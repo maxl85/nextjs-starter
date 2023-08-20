@@ -1,3 +1,5 @@
+/* eslint-disable no-secrets/no-secrets */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable @typescript-eslint/no-misused-promises */
@@ -6,11 +8,15 @@
 
 import { clsx } from 'clsx';
 import { observer } from 'mobx-react-lite';
+import Image from 'next/image';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { BiSolidMinusCircle, BiSolidPlusCircle } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
 
+import { useAddToCart, useCartQuery, useDeleteCart, useReduceCart } from '@/hooks/queries/cart';
 import { useStore } from '@/hooks/useStore';
 
+import SizeIcon from '../../../../public/assets/icons/size.svg';
 import styles from './Cart.module.scss';
 
 interface CartForm {
@@ -29,12 +35,11 @@ function Cart() {
     mode: 'onBlur',
   });
 
-  // const cartVisible = false;
-  // const cartVisible = useSelector(selectCartVisible);
-  // const { items, totalPrice } = useSelector(selectCart);
-  // const dispatch = useDispatch();
-
   const store = useStore();
+  const { data: cartItems, isSuccess } = useCartQuery();
+  const addToCart = useAddToCart();
+  const reduceCart = useReduceCart();
+  const deleteCart = useDeleteCart();
 
   // eslint-disable-next-line no-console
   const onSubmit: SubmitHandler<CartForm> = data => console.log(data);
@@ -49,74 +54,98 @@ function Cart() {
           <IoClose />
         </button>
 
-        {/* <div className={styles.cartList}>
-          {items.map((item, i) => (
-            <div key={i} className={styles.cartItem}>
-              <div className={styles.cartItemImage}>
-                <div className={styles.cartItemImageWrapIcon}>
-                  {item.type.map((value, i) => (
-                    <div key={i} className={styles.cartItemImageIcon}>
-                      <Image fill src={`/assets/icons/type/${value}.svg`} alt="icon" />
+        {isSuccess && (
+          <div className={styles.cartList}>
+            {cartItems?.map((item, i) => (
+              <div key={i} className={styles.cartItem}>
+                <div className={styles.cartItemImage}>
+                  {/* <div className={styles.cartItemImageWrapIcon}>
+                    <div className={styles.cartItemImageIcon}>
+                      <Image
+                        fill
+                        src={`${process.env.NEXT_PUBLIC_BACK_URL}/category/image/${item.product.category.image}`}
+                        alt="icon"
+                      />
                     </div>
-                  ))}
+                  </div> */}
+
+                  <SizeIcon className={styles.cartItemImageSizeL} />
+                  <SizeIcon className={styles.cartItemImageSizeM} />
+
+                  <div
+                    className={clsx(
+                      styles.cartItemImagePizza,
+                      item.productSizeId === 2 && styles.sizeL,
+                      item.productSizeId === 1 && styles.sizeM,
+                      item.productSizeId === 0 && styles.sizeS
+                    )}
+                  >
+                    <Image
+                      fill
+                      src={`${process.env.NEXT_PUBLIC_BACK_URL}/product/image/${item.product.image}`}
+                      alt="pizza"
+                    />
+                  </div>
                 </div>
 
-                <SizeIcon className={styles.cartItemImageSizeL} />
-                <SizeIcon className={styles.cartItemImageSizeM} />
-
-                <div
-                  className={clsx(
-                    styles.cartItemImagePizza,
-                    item.activeSize === 2 && styles.sizeL,
-                    item.activeSize === 1 && styles.sizeM,
-                    item.activeSize === 0 && styles.sizeS
-                  )}
-                >
-                  <Image fill src={item.image} alt="pizza" />
+                <div className={styles.cartItemPizza}>
+                  <div className={styles.cartItemPizzaName}>{item.product.name}</div>
+                  <div className={styles.cartItemPizzaSize}>{`${
+                    item.product.sizes[item.productSizeId]
+                  } см`}</div>
                 </div>
-              </div>
 
-              <div className={styles.cartItemPizza}>
-                <div className={styles.cartItemPizzaName}>{item.name}</div>
-                <div className={styles.cartItemPizzaSize}>{`${item.size} см`}</div>
-              </div>
+                <div className={styles.cartItemCount}>
+                  <button
+                    className={styles.cartItemCountBtn}
+                    type="button"
+                    disabled={item.quantity === 1}
+                    onClick={() => {
+                      reduceCart.mutate({ id: item.id.toString() });
+                    }}
+                  >
+                    <BiSolidMinusCircle />
+                  </button>
+                  <input disabled className={styles.cartItemCountInput} value={item.quantity} />
+                  <button
+                    className={styles.cartItemCountBtn}
+                    type="button"
+                    onClick={() => {
+                      addToCart.mutate({
+                        requestBody: {
+                          productId: item.product.id,
+                          productSizeId: item.productSizeId,
+                          quantity: 1,
+                        },
+                      });
+                    }}
+                  >
+                    <BiSolidPlusCircle />
+                  </button>
+                </div>
 
-              <div className={styles.cartItemCount}>
+                <div className={styles.cartItemPrice}>{`${item.totalPrice} руб`}</div>
+
                 <button
-                  className={styles.cartItemCountBtn}
+                  className={styles.cartItemDelBtn}
                   type="button"
-                  disabled={item.count === 1}
-                  onClick={() => dispatch(decCount(item))}
+                  onClick={() => {
+                    deleteCart.mutate({ id: item.id.toString() });
+                  }}
                 >
-                  <BiSolidMinusCircle />
-                </button>
-                <input disabled className={styles.cartItemCountInput} value={item.count} />
-                <button
-                  className={styles.cartItemCountBtn}
-                  type="button"
-                  onClick={() => dispatch(incCount(item))}
-                >
-                  <BiSolidPlusCircle />
+                  <IoClose />
                 </button>
               </div>
+            ))}
+          </div>
+        )}
 
-              <div className={styles.cartItemPrice}>{`${item.price * item.count} руб`}</div>
-
-              <button
-                className={styles.cartItemDelBtn}
-                type="button"
-                onClick={() => dispatch(removeItem(item))}
-              >
-                <IoClose />
-              </button>
-            </div>
-          ))}
-        </div> */}
-
-        {/* <div className={styles.cartTotal}>
+        <div className={styles.cartTotal}>
           <span className={styles.cartTotalText}>Сумма заказа :</span>
-          <span className={styles.cartTotalSum}>{`${totalPrice} руб`}</span>
-        </div> */}
+          <span className={styles.cartTotalSum}>
+            {`${cartItems?.reduce((sum, current) => sum + current.totalPrice, 0)} руб`}
+          </span>
+        </div>
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.formTitle}>Контакты</div>
