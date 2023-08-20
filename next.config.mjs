@@ -66,9 +66,9 @@ const nextConfig = {
     images: {
         remotePatterns: [
           {
-            protocol: 'http',
-            hostname: '158.160.14.162',
-            port: '7777',
+            protocol: 'https',
+            hostname: 'd5dsl4vbut4ulv4dt088.apigw.yandexcloud.net',
+            // port: '7777',
             pathname: '/api/**',
           },
         ],

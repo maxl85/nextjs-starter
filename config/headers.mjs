@@ -1,4 +1,5 @@
 export const headers = () => {
+    return [];
     if (process.env.NODE_ENV !== 'production') return [];
 
     const CachePublicMaxAge = process.env.CACHE_PUBLIC_MAX_AGE ?? 3600;
